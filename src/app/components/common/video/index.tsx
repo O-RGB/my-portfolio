@@ -5,6 +5,9 @@ interface VideoCommonProps {
   className?: string;
   autoPlay?: boolean;
   loop?: boolean;
+  onLoaded?: (duration: number) => void;
+  onTimeUpdate?: (currentTime: number, duration: number) => void;
+  onEnded?: () => void; // เพิ่ม event เมื่อวิดีโอเล่นจบ
 }
 
 const VideoCommon: React.FC<VideoCommonProps> = ({
@@ -12,6 +15,9 @@ const VideoCommon: React.FC<VideoCommonProps> = ({
   className,
   autoPlay,
   loop,
+  onLoaded,
+  onTimeUpdate,
+  onEnded,
 }) => {
   return (
     <video
@@ -21,6 +27,12 @@ const VideoCommon: React.FC<VideoCommonProps> = ({
       loop={loop}
       muted
       playsInline
+      onLoadedMetadata={(e) => onLoaded && onLoaded(e.currentTarget.duration)}
+      onTimeUpdate={(e) =>
+        onTimeUpdate &&
+        onTimeUpdate(e.currentTarget.currentTime, e.currentTarget.duration)
+      }
+      onEnded={() => onEnded && onEnded()}
     />
   );
 };

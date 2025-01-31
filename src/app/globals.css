@@ -6,8 +6,17 @@
   font-size: clamp(1rem, 10vw, 20rem);
 }
 .text-clamp-lg {
-  font-size: clamp(3rem, 5vw, 20rem);
+  font-size: clamp(2.5rem, 6vw, 20rem);
 }
+
+.gap-layout {
+  @apply gap-6 lg:gap-10;
+}
+
+.rounded-layout{
+  @apply rounded-3xl
+}
+
 /* 
 :root {
   --background: #ffffff;
@@ -24,5 +33,5 @@
 body {
   width: 100%;
   min-height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
 }

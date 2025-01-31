@@ -6,11 +6,17 @@ interface MenuItemProps {
   label?: string;
   active?: boolean;
   href?: string;
+  className?: string;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ label, active, href }) => {
+const MenuItem: React.FC<MenuItemProps> = ({
+  label,
+  active,
+  href,
+  className,
+}) => {
   return (
-    <Link href={href ?? "/"}>
+    <Link className={className} href={href ?? "/"}>
       <ButtonCommon
         label={label}
         variant="transparent"
