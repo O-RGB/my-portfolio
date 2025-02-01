@@ -26,45 +26,36 @@ const Home: React.FC<HomeProps> = ({}) => {
           setOpen(false);
         }}
       >
-        <div className="break-all">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
-          nobis, exercitationem odio voluptate modi veniam quis dolor labore!
-          Velit incidunt molestias ipsum atque laboriosam aspernatur quo libero
-          iusto, optio temporibus? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Quo nam alias vero ex, non dolore ducimus placeat at
-          ea tempora voluptatum neque delectus quos dolor repellendus sint iste
-          odit. Labore! Lorem ipsum dolor sit amet, consectetur adipisicing
-          elit. Mollitia nobis, exercitationem odio voluptate modi veniam quis
-          dolor labore! Velit incidunt molestias ipsum atque laboriosam
-          aspernatur quo libero iusto, optio temporibus? Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Quo nam alias vero ex, non dolore
-          ducimus placeat at ea tempora voluptatum neque delectus quos dolor
-          repellendus sint iste odit. Labore! Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Mollitia nobis, exercitationem odio
-          voluptate modi veniam quis dolor labore! Velit incidunt molestias
-          ipsum atque laboriosam aspernatur quo libero iusto, optio temporibus?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo nam alias
-          vero ex, non dolore ducimus placeat at ea tempora voluptatum neque
-          delectus quos dolor repellendus sint iste odit. Labore! Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit. Mollitia nobis,
-          exercitationem odio voluptate modi veniam quis dolor labore! Velit
-          incidunt molestias ipsum atque laboriosam aspernatur quo libero iusto,
-          optio temporibus? Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Quo nam alias vero ex, non dolore ducimus placeat at ea tempora
-          voluptatum neque delectus quos dolor repellendus sint iste odit.
-          Labore! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Mollitia nobis, exercitationem odio voluptate modi veniam quis dolor
-          labore! Velit incidunt molestias ipsum atque laboriosam aspernatur quo
-          libero iusto, optio temporibus? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Quo nam alias vero ex, non dolore ducimus placeat at
-          ea tempora voluptatum neque delectus quos dolor repellendus sint iste
-          odit. Labore! Lorem ipsum dolor sit amet, consectetur adipisicing
-          elit. Mollitia nobis, exercitationem odio voluptate modi veniam quis
-          dolor labore! Velit incidunt molestias ipsum atque laboriosam
-          aspernatur quo libero iusto, optio temporibus? Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Quo nam alias vero ex, non dolore
-          ducimus placeat at ea tempora voluptatum neque delectus quos dolor
-          repellendus sint iste odit. Labore! 123123123
+        <div className="break-all flex flex-col gap-4">
+          <div className="pb-4">
+            <span className="text-4xl">Nike x Martine</span> <br />
+            <span className="text-xl text-gray-500">
+              Rose The Lost Lionesses
+            </span>
+          </div>
+          <div className="flex flex-col gap-4">
+            <span>
+              In collaboration with Nike, International Magic and Rosie Marks,
+              Martine Rose presents The Lost Lionesses, a project that
+              celebrates the power of sport to unite us despite any obstacle.
+            </span>
+
+            <ImageBox
+              className="h-[200px] w-full"
+              srcImage="/images/IMG_8522.jpg"
+            ></ImageBox>
+            <span>
+              Looking ahead to the UEFA Women’s Euros in 2022 and beyond,
+              Martine Rose and International Magic have built a virtual
+              experience to recognise 50 years since 14 English women, aged just
+              13 to 21, travelled to Mexico City to play football.
+            </span>
+            <span>
+              It’s a journey through a familiar landscape of tube stops, shop
+              fronts, and British estates, where ordinary people do
+              extraordinary things.
+            </span>
+          </div>
         </div>
       </ModalCommon>
 
@@ -81,7 +72,7 @@ const Home: React.FC<HomeProps> = ({}) => {
               hide
                 ? {
                     initial: { opacity: 1, y: 0, x: 0 },
-                    animate: { x: "33%", y: 0, opacity: 1, delay: 0.3 },
+                    animate: { x: "28%", y: 0, opacity: 1, delay: 0.3 },
                   }
                 : "topToBottom"
             }

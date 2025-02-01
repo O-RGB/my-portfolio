@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Kanit } from "next/font/google";
+import { Kanit, Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 
-const kanit = Kanit({
-  variable: "--font-kanit-sans",
+const noto = Noto_Sans_Thai({
+  variable: "--font-noto-sans",
   subsets: ["thai"],
   weight: "400",
   preload: true,
@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${kanit.className} antialiased`}>{children}</body>
+      <body className={`${noto.className} antialiased`}>{children}</body>
     </html>
   );
 }

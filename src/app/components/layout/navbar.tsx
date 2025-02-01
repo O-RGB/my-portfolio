@@ -28,10 +28,12 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
   return (
     <>
       <motion.div
-        className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showDynamicIsland ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
+        className="fixed left-1/2 transform -translate-x-1/2 z-50"
+        initial={{ top: -53 }}
+        animate={{
+          top: showDynamicIsland ? 13 : -53,
+        }}
+        transition={{ ease: "backInOut", duration: 1 }}
       >
         <DynamicIsland />
       </motion.div>
