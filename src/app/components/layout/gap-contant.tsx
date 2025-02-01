@@ -5,7 +5,7 @@ interface GapContantProps {
 }
 
 const GapContant: React.FC<GapContantProps> = ({ children }) => {
-  return <div className="flex flex-col gap-layout">{children}</div>;
+  return <div className="flex flex-col gap-10 lg:gap-20">{children}</div>;
 };
 
 export default GapContant;

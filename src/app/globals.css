@@ -5,16 +5,31 @@
 .text-clamp-xl {
   font-size: clamp(1rem, 10vw, 20rem);
 }
+
 .text-clamp-lg {
   font-size: clamp(2.5rem, 6vw, 20rem);
+}
+
+.text-clamp-base {
+  font-size: clamp(1rem, 0.9vw, 1rem);
+}
+
+@media (min-width: 1280px) {
+  .text-clamp-xl {
+    font-size: 8rem;
+  }
+
+  .text-clamp-lg {
+    font-size: 8rem;
+  }
 }
 
 .gap-layout {
   @apply gap-6 lg:gap-10;
 }
 
-.rounded-layout{
-  @apply rounded-3xl
+.rounded-layout {
+  @apply rounded-3xl;
 }
 
 /* 

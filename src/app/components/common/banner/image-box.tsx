@@ -14,7 +14,7 @@ interface ImageBoxProps {
 const ImageBox: React.FC<ImageBoxProps> = ({
   srcImage,
   srcVideo,
-  className = "h-[400px] lg:h-[600px]",
+  className = "h-[300px] md:h-[40vw] max-h-[700px]",
   children,
   onVideoEnd,
 }) => {
@@ -54,7 +54,7 @@ const ImageBox: React.FC<ImageBoxProps> = ({
 
         {children && (
           <div className="absolute top-0 w-full h-full flex items-center justify-center">
-            <div>{children}</div>
+            <div className="relative">{children}</div>
           </div>
         )}
 
