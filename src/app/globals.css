@@ -32,6 +32,21 @@
   @apply rounded-3xl;
 }
 
+@font-face {
+  font-family: "Sukhumvit Set";
+  src: url("/fonts/SukhumvitSet-Text.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --font-sukhumvit: "Sukhumvit Set", sans-serif;
+}
+
+body {
+  font-family: var(--font-sukhumvit);
+}
+
 /* 
 :root {
   --background: #ffffff;

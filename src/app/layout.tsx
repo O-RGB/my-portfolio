@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import { Kanit, Noto_Sans_Thai } from "next/font/google";
+import { Noto_Sans_Thai } from "next/font/google";
 import "./globals.css";
 
-const noto = Noto_Sans_Thai({
-  variable: "--font-noto-sans",
-  subsets: ["thai"],
-  weight: "400",
-  preload: true,
-});
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
+// const noto = Noto_Sans_Thai({
+//   variable: "--font-noto-sans",
+//   subsets: ["thai"],
+//   weight: "400",
+//   preload: true,
 // });
 
 export const metadata: Metadata = {
@@ -26,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${noto.className} antialiased`}>{children}</body>
+      <body className={`antialiased`}>{children}</body>
     </html>
   );
 }

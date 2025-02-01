@@ -30,11 +30,13 @@ const ImageBox: React.FC<ImageBoxProps> = ({
       <div
         className={`relative w-full ${className} overflow-hidden rounded-layout transition-all duration-1000`}
       >
-        <div className="absolute top-0 left-0 bottom-0 bg-slate-200 w-full">
+        <div className="absolute top-0 left-0 bottom-0 bg-slate-200 w-full overflow-hidden rounded-layout">
           <ImageCommon
             src={srcImage}
             objectFit="cover"
-            className="h-full"
+            className={`h-full ${
+              srcVideo ? (onEnd ? "opacity-100" : "opacity-0") : ""
+            }`}
           ></ImageCommon>
         </div>
 
@@ -57,20 +59,6 @@ const ImageBox: React.FC<ImageBoxProps> = ({
             <div className="relative">{children}</div>
           </div>
         )}
-
-        {/* <div
-          className={`top-0 absolute w-full h-full flex items-center justify-center  text-white z-50`}
-        >
-          <AnimeCommon>
-            <div
-              className={`font-bold ${
-                hide ? "text-clamp-lg" : "text-clamp-xl"
-              } duration-1000`}
-            >
-              PORTFOLIO
-            </div>
-          </AnimeCommon>
-        </div> */}
       </div>
     </>
   );

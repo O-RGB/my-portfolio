@@ -29,9 +29,9 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
     <>
       <motion.div
         className="fixed left-1/2 transform -translate-x-1/2 z-50"
-        initial={{ top: -53 }}
+        initial={{ top: -70 }}
         animate={{
-          top: showDynamicIsland ? 13 : -53,
+          top: showDynamicIsland ? 13 : -70,
         }}
         transition={{ ease: "backInOut", duration: 1 }}
       >

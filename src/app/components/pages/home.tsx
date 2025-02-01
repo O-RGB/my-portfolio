@@ -10,6 +10,9 @@ import AnimeCommon from "../common/anime/anime";
 import CardBox from "../common/card";
 import ButtonCommon from "../common/button";
 import ModalCommon from "../common/modal";
+import GalleryImages from "../common/galleryimages";
+import HeaderTitle from "../common/contant/header-title";
+import Quotes from "../common/contant/quotes";
 
 interface HomeProps {}
 
@@ -26,34 +29,38 @@ const Home: React.FC<HomeProps> = ({}) => {
           setOpen(false);
         }}
       >
-        <div className="break-all flex flex-col gap-4">
-          <div className="pb-4">
-            <span className="text-4xl">Nike x Martine</span> <br />
-            <span className="text-xl text-gray-500">
-              Rose The Lost Lionesses
-            </span>
-          </div>
+        <div className="break-words flex flex-col gap-4">
+          <HeaderTitle
+            className="pb-4"
+            title="About Me"
+            detail={`สวัสดีครับ ผม "ส้มโอ"`}
+          ></HeaderTitle>
+
           <div className="flex flex-col gap-4">
             <span>
-              In collaboration with Nike, International Magic and Rosie Marks,
-              Martine Rose presents The Lost Lionesses, a project that
-              celebrates the power of sport to unite us despite any obstacle.
+              มีประสบการณ์ในสายนี้มา 2 ปีแล้ว ส่วนใหญ่จะใช้ Next.js และ NestJS
+              ในการพัฒนาเว็บไซต์ และในบางงานก็มีใช้ PHP เป็น Backend บ้าง
+              และมีประสบการณ์การเขียน App ด้วย React Native
             </span>
 
             <ImageBox
               className="h-[200px] w-full"
               srcImage="/images/IMG_8522.jpg"
             ></ImageBox>
+
+            <Quotes
+              title={`"The biggest risk is not taking any risk."`}
+              reference="Mark Zuckerberg"
+            ></Quotes>
             <span>
-              Looking ahead to the UEFA Women’s Euros in 2022 and beyond,
-              Martine Rose and International Magic have built a virtual
-              experience to recognise 50 years since 14 English women, aged just
-              13 to 21, travelled to Mexico City to play football.
+              ในด้านการทำงานผมจะเป็นคนละเอียดอ่อนในการทำงานและเขียนโค้ด
+              จะเขียนโค้ดที่ Reuse
+              ให้ได้มากที่สุดและคำนึงถึงทีมเมื่อมีการส่งต่อให้ทีมอ่านโค้ดและแก้ไขต่อไปได้
             </span>
             <span>
-              It’s a journey through a familiar landscape of tube stops, shop
-              fronts, and British estates, where ordinary people do
-              extraordinary things.
+              ปัจจุบัน ผมกำลังมองหาความท้าทายใหม่ๆ ที่จะช่วยเสริมทักษะในการเป็น
+              Full-Stack Developer รวมถึงการเรียนรู้เครื่องมือใหม่ๆ เช่น CI/CD
+              เพื่อให้กระบวนการพัฒนาเว็บไซต์มีความสะดวกและรวดเร็วมากขึ้น
             </span>
           </div>
         </div>
@@ -105,18 +112,25 @@ const Home: React.FC<HomeProps> = ({}) => {
               <span className="font-bold text-2xl">About Me</span>
               <div>
                 <span className="text-clamp-base line-clamp-5 leading-5">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
-                  quas, cumque itaque sint Lorem, ipsum dolor sit amet
-                  consectetur adipisicing elit. Aliquid aperiam et ut quaerat,
-                  quod, recusandae illo molestias cumque officia labore, rerum
-                  dignissimos eaque optio blanditiis debitis dolorum excepturi
-                  incidunt veritatis.
+                  สวัสดีครับ ผม "ส้มโอ" มีประสบการณ์ในสายนี้มา 2 ปีแล้ว
+                  ส่วนใหญ่จะใช้ Next.js และ NestJS ในการพัฒนาเว็บไซต์
+                  และในบางงานก็มีใช้ PHP เป็น Backend บ้าง
+                  และมีประสบการณ์การเขียน App ด้วย React Native บ้าง
+                  {/* <br />
+                  ในด้านการทำงานผมจะเป็นคนละเอียดอ่อนในการทำงานและเขียนโค้ด
+                  จะเขียนโค้ดที่ Reuse
+                  ให้ได้มากที่สุดและคำนึงถึงทีมเมื่อมีการส่งต่อให้ทีมอ่านโค้ดและแก้ไขต่อไปได้{" "}
+                  <br />
+                  ปัจจุบัน ผมกำลังมองหาความท้าทายใหม่ๆ
+                  ที่จะช่วยเสริมทักษะในการเป็น Full-Stack Developer
+                  รวมถึงการเรียนรู้เครื่องมือใหม่ๆ เช่น CI/CD
+                  เพื่อให้กระบวนการพัฒนาเว็บไซต์มีความสะดวกและรวดเร็วมากขึ้น */}
                 </span>
               </div>
               <div>
                 <ButtonCommon
                   variant="transparent"
-                  label="See More"
+                  label="อ่านเพิ่มเติม"
                   onClick={() => {
                     setOpen(true);
                   }}
@@ -124,13 +138,13 @@ const Home: React.FC<HomeProps> = ({}) => {
               </div>
             </CardBox>
             <div className="col-span-1 row-span-1 h-full w-full">
-              <ImageBox
-                className="w-full h-[300px] sm:h-full"
-                srcImage="images/IMG_6943.JPG"
-              ></ImageBox>
+              <GalleryImages
+                images={["/images/IMG_6943.JPG", "/images/IMG_6944.JPG"]}
+              ></GalleryImages>
             </div>
           </div>
         </div>
+        <div></div>
       </GapContant>
     </ContainerLayout>
   );

@@ -50,7 +50,7 @@ const ModalCommon: React.FC<ModalCommonProps> = ({
               transition={{ duration: 0.7, ease: "anticipate" }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className={`overflow-y-auto h-full p-16`}>{children}</div>
+              <div className={`overflow-y-auto h-full p-10 lg:p-16`}>{children}</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
