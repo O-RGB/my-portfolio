@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Thai } from "next/font/google";
+import { ThemeProvider } from "@/components/theme";
 import "./globals.css";
-
-// const noto = Noto_Sans_Thai({
-//   variable: "--font-noto-sans",
-//   subsets: ["thai"],
-//   weight: "400",
-//   preload: true,
-// });
 
 export const metadata: Metadata = {
   title: "Phichayoot Boonton",
@@ -21,7 +14,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false} // ให้เปลี่ยนเป็น false เพื่อให้การเปลี่ยนโหมดมีการ transition
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

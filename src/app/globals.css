@@ -41,26 +41,21 @@
 
 :root {
   --font-sukhumvit: "Sukhumvit Set", sans-serif;
-}
 
-body {
-  font-family: var(--font-sukhumvit);
+  /* --background: #ffffff;
+  --foreground: #171717; */
 }
 
 /* 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}*/
+} */
 
 body {
+  font-family: var(--font-sukhumvit);
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;

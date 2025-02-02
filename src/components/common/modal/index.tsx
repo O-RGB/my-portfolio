@@ -43,14 +43,16 @@ const ModalCommon: React.FC<ModalCommonProps> = ({
         <>
           <div className="fixed inset-0 z-40 flex items-center justify-center px-4">
             <motion.div
-              className="relative z-50 w-full max-w-lg bg-white/70 backdrop-blur-xl rounded-layout shadow-lg h-[80vh] overflow-hidden"
+              className="relative z-50 w-full max-w-lg bg-white/70 dark:bg-black/50 backdrop-blur-xl rounded-layout shadow-lg h-[80vh] overflow-hidden"
               initial={{ y: "105vh" }}
               animate={{ y: 0 }}
               exit={{ y: "105vh" }}
               transition={{ duration: 0.7, ease: "anticipate" }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className={`overflow-y-auto h-full p-10 lg:p-16`}>{children}</div>
+              <div className={`overflow-y-auto h-full p-10 lg:p-16`}>
+                {children}
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}

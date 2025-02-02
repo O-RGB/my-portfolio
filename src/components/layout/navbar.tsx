@@ -3,6 +3,11 @@ import { motion } from "framer-motion";
 import ContainerLayout from "./container";
 import MenuItem from "../common/menu";
 import DynamicIsland from "../common/dynamic-island";
+import SwitchCommon from "../common/switch";
+import { FaImage, FaMoon, FaSun } from "react-icons/fa";
+import { FiSettings } from "react-icons/fi";
+import ButtonCommon from "../common/button";
+import DarkMode from "../tools/dark-mode";
 
 interface NavBarProps {}
 
@@ -40,10 +45,14 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
       <ContainerLayout>
         <div className="h-20 flex items-center justify-between">
           <span className="font-bold text-3xl">Phichayoot</span>
-          <div className="flex">
+          <div className="flex items-center justify-center">
             <MenuItem className="hidden lg:block" label="Home"></MenuItem>
             <MenuItem className="hidden lg:block" label="About me"></MenuItem>
             <MenuItem className="hidden lg:block" label="Work"></MenuItem>
+
+            <div className="pl-4">
+              <DarkMode></DarkMode>
+            </div>
           </div>
         </div>
       </ContainerLayout>

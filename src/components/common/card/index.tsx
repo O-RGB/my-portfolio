@@ -6,9 +6,10 @@ interface CardBoxProps {
 }
 
 const CardBox: React.FC<CardBoxProps> = ({ children, className }) => {
-  //backdrop-blur-sm border border-white/50
   return (
-    <div className={`p-6 bg-[#efe9e2] rounded-layout ${className}`}>
+    <div
+      className={`p-6 bg-[#efe9e2] dark:bg-black dark:border-white/50 dark:border rounded-layout ${className}`}
+    >
       {children}
     </div>
   );
