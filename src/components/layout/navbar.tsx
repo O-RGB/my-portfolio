@@ -40,7 +40,7 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
         }}
         transition={{ ease: "backInOut", duration: 1 }}
       >
-        <DynamicIsland />
+        <DynamicIsland onShow={showDynamicIsland} />
       </motion.div>
       <ContainerLayout>
         <div className="h-20 flex items-center justify-between">

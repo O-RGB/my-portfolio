@@ -50,6 +50,9 @@ const ModalCommon: React.FC<ModalCommonProps> = ({
               transition={{ duration: 0.7, ease: "anticipate" }}
               onClick={(e) => e.stopPropagation()}
             >
+              <div className="h-10 blur-xl bg-white/50 dark:bg-black/50 absolute -top-3 w-full"></div>
+              <div className="h-5 blur-lg bg-white/30 dark:bg-black/30 absolute -top-0 w-full"></div>
+
               <div className={`overflow-y-auto h-full p-10 lg:p-16`}>
                 {children}
               </div>
