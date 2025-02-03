@@ -53,9 +53,15 @@ const ModalCommon: React.FC<ModalCommonProps> = ({
               <div className="h-10 blur-xl bg-white/50 dark:bg-black/50 absolute -top-3 w-full"></div>
               <div className="h-5 blur-lg bg-white/30 dark:bg-black/30 absolute -top-0 w-full"></div>
 
-              <div className={`overflow-y-auto h-full p-10 lg:p-16`}>
+              <div
+                className={`overflow-y-auto h-full py-8 lg:py-16 px-6 lg:px-16 [&::-webkit-scrollbar]:hidden`}
+              >
+                <div className="pt-3"></div>
                 {children}
               </div>
+
+              <div className="h-10 blur-xl bg-white/50 dark:bg-black/50 absolute -bottom-3 w-full"></div>
+              <div className="h-5 blur-lg bg-white/30 dark:bg-black/30 absolute -bottom-0 w-full"></div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}

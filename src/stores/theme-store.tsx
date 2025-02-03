@@ -1,20 +1,32 @@
 import { create } from "zustand";
 
-interface ThemeConfig {
-  isDark: boolean;
+interface ISectionData {
+  name: string;
+  description?: string;
 }
 
-interface ThemeStore {
-  config?: ThemeConfig;
-  setTheme: (config: ThemeConfig) => void;
+const SercionValues: Record<string, ISectionData> = {
+  banner: { name: "About Me", description: "🍊 I'm Phichayoot." },
+  about: { name: "About Me", description: "🍊 I'm Phichayoot." },
+  experience: { name: "Experience", description: "💻 I'm Developer." },
+};
+
+interface SectionStore {
+  sectionId?: string;
+  sectionName?: ISectionData;
+  setSection: (sectionId: string) => void;
 }
 
-const useThemeStore = create<ThemeStore>((set) => ({
-  config: undefined,
-  setTheme: (config: ThemeConfig) =>
+const useSectionStore = create<SectionStore>((set) => ({
+  sectionId: undefined,
+  sectionName: undefined,
+  setSection: (sectionId: string) => {
+    const sectionData = SercionValues[sectionId];
     set((state) => ({
-      config,
-    })),
+      sectionId,
+      sectionName: sectionData,
+    }));
+  },
 }));
 
-export default useThemeStore;
+export default useSectionStore;
