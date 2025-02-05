@@ -14,9 +14,7 @@ const WorkExperienceSection: React.FC<WorkExperienceSectionProps> = ({}) => {
         number={"1"}
         title={"Mahasarakham University"}
         bottomTitle="( วิทยาการคอมพิวเตอร์ )"
-        description={
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam fuga assumenda eius voluptatibus, sed dicta quisquam alias eum hic inventore modi, obcaecati facere, consequuntur unde commodi voluptate illo adipisci quidem."
-        }
+        description={`เริ่มศึกษาตั้งแต่ตั้งแต่ 2020 - 2023 เริ่มต้นเรียน Problem Solving จากนั้นค่อย ๆ จับ Programing เช่น OOP, Angular ,Java, Angular, Python `}
       ></TitleBox>
       <TitleBox
         number={"2"}
