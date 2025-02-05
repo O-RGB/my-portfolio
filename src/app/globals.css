@@ -11,7 +11,7 @@
 }
 
 .text-clamp-lg {
-  font-size: clamp(1rem, 5vw, 20rem);
+  font-size: clamp(2.5rem, 5vw, 20rem);
 }
 
 .text-clamp-md {

@@ -1,4 +1,4 @@
-import useSectionStore from "@/stores/theme-store";
+import useSectionStore from "@/stores/section-store";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 

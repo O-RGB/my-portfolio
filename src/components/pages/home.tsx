@@ -6,7 +6,7 @@ import BannerSection from "../sections/banner-section";
 import AboutMeModal from "../modals/about-me-modal";
 import AboutMeSection from "../sections/about-me-section";
 import WorkExperienceSection from "../sections/work-experience-section";
-import useSectionStore from "@/stores/theme-store";
+import useSectionStore from "@/stores/section-store";
 import SkillsSection from "../sections/skills-section";
 
 interface HomeProps {}

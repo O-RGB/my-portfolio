@@ -7,7 +7,7 @@ interface VideoCommonProps {
   loop?: boolean;
   onLoaded?: (duration: number) => void;
   onTimeUpdate?: (currentTime: number, duration: number) => void;
-  onEnded?: () => void; // เพิ่ม event เมื่อวิดีโอเล่นจบ
+  onEnded?: () => void;
 }
 
 const VideoCommon: React.FC<VideoCommonProps> = ({
