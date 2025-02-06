@@ -15,7 +15,7 @@ const TitleBox: React.FC<TitleBoxProps> = ({
 }) => {
   return (
     <>
-      <div className="flex flex-col md:flex-row items-start gap-0 md:gap-12 py-6 border-b border-gray-200">
+      <div className="flex flex-col md:flex-row items-start gap-0 md:gap-12 py-6 border-b border-gray-200 dark:border-white/30 duration-300">
         <div className="text-clamp-base text-gray-300 font-bold">
           /0{number}
         </div>

@@ -4,7 +4,11 @@ import { useTheme } from "next-themes";
 import { FaMoon } from "react-icons/fa";
 import ButtonCommon from "../common/button";
 
-const DarkModeToggle = () => {
+interface DarkModeToggleProps {
+  disabled?: boolean;
+}
+
+const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ disabled }) => {
   const [mounted, setMounted] = React.useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
@@ -15,6 +19,7 @@ const DarkModeToggle = () => {
   if (!mounted) {
     return (
       <ButtonCommon
+        disabled={disabled}
         isCircle
         variant="custom"
         customColor="bg-transparent"

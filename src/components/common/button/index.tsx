@@ -8,12 +8,14 @@ interface ButtonCommonProps {
   label?: string;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 }
 
 const ButtonCommon: React.FC<ButtonCommonProps> = ({
   variant = "black",
   customColor = "#000",
   isCircle = false,
+  disabled = false,
   icon,
   label,
   onClick,
@@ -28,6 +30,7 @@ const ButtonCommon: React.FC<ButtonCommonProps> = ({
 
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={`${getBackground()} ${className} flex items-center justify-center ${
         isCircle ? "w-8 h-8 rounded-full" : "px-4 py-2 rounded-full"

@@ -79,9 +79,9 @@ const Home: React.FC<HomeProps> = ({}) => {
           </div>
         </GapContant>
       </ContainerLayout>
-      <ContainerLayout>
+      <ContainerLayout className="w-full overflow-hidden">
         <GapContant>
-          <div id="skills" className="scroll-section">
+          <div id="skills" className="scroll-section ">
             <SkillsSection></SkillsSection>
           </div>
         </GapContant>

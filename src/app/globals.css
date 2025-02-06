@@ -42,13 +42,8 @@
     font-size: 2rem;
   }
 }
-
-.gap-layout {
-  @apply gap-6 lg:gap-10;
-}
-
 .gap-contant {
-  @apply gap-4 lg:gap-6;
+  @apply gap-3 md:gap-4 lg:gap-6;
 }
 
 .rounded-layout {

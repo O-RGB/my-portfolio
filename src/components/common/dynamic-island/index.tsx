@@ -52,6 +52,9 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
         !containerRef.current.contains(event.target as Node)
       ) {
         setHideOptions(true);
+        setHovering(false);
+        setAllMenu(false);
+        // close();
       }
     };
 
@@ -78,6 +81,10 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
         setAllMenu(false);
         setHovering(false);
       }}
+      onTouchStart={() => {
+        setHideOptions(false);
+        setHovering(true);
+      }}
       onClick={onOptionsChange}
       initial={{ scale: 1 }}
       animate={{
@@ -97,7 +104,7 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
           duration: 1,
         },
       }}
-      className={`relative rounded-[28px] flex flex-col w-fit py-2 px-10 backdrop-blur-xl bg-black/40 shadow-lg group select-none cursor-default`}
+      className={` relatve rounded-[28px] flex flex-col w-fit py-2 px-10 backdrop-blur-xl bg-black/40 shadow-lg group select-none cursor-default`}
     >
       <motion.div layout className="flex items-center justify-center min-w-32">
         <DynamicDescription />
@@ -109,7 +116,7 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
           !hideOptions ? "opacity-100" : "opacity-0"
         } duration-100`}
       >
-        <DarkMode />
+        <DarkMode disabled={hideOptions} />
       </motion.div>
 
       <motion.div
@@ -119,6 +126,7 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
         } duration-100`}
       >
         <ButtonCommon
+          disabled={hideOptions}
           onClick={openAllMenu}
           icon={
             <FaList
