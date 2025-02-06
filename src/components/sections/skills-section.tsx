@@ -37,7 +37,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
           </div>
         }
-        bottom={"gweg"}
       ></SkillsBox>
     </motion.div>
   );
@@ -94,7 +93,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
           </div>
         }
-        bottom={"gweg"}
       ></SkillsBox>
     </motion.div>
   );
@@ -125,7 +123,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
           </div>
         }
-        bottom={"gweg"}
       ></SkillsBox>
     </motion.div>
   );
@@ -156,7 +153,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
           </div>
         }
-        bottom={"gweg"}
       ></SkillsBox>
     </motion.div>
   );
@@ -180,7 +176,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
           </div>
         }
-        bottom={"gweg"}
       ></SkillsBox>
     </motion.div>
   );
@@ -210,7 +205,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
           </div>
         }
-        bottom={"gweg"}
       ></SkillsBox>
     </motion.div>
   );
@@ -242,7 +236,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
           </div>
         }
-        bottom={"gweg"}
       ></SkillsBox>
     </motion.div>
   );
@@ -263,7 +256,6 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
           </div>
         }
-        bottom={"gweg"}
       ></SkillsBox>
     </motion.div>
   );

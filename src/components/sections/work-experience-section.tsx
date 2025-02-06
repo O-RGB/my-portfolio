@@ -14,22 +14,20 @@ const WorkExperienceSection: React.FC<WorkExperienceSectionProps> = ({}) => {
         number={"1"}
         title={"Mahasarakham University"}
         bottomTitle="( วิทยาการคอมพิวเตอร์ )"
-        description={`เริ่มศึกษาตั้งแต่ตั้งแต่ 2020 - 2023 เริ่มต้นเรียน Problem Solving จากนั้นค่อย ๆ จับ Programing เช่น OOP, Angular ,Java, Angular, Python `}
+        description={`เริ่มศึกษาตั้งแต่ปี 2020 - 2023 โดยเริ่มจากการเรียนรู้ Problem Solving แล้วต่อยอดไปยัง Algorithms และ Object-Oriented Programming (OOP) จากนั้นจึงศึกษาภาษาและเทคโนโลยีต่าง ๆ เช่น Angular, Java, และ Python (Web & AI)`}
       ></TitleBox>
       <TitleBox
         number={"2"}
         title={"IT One"}
         bottomTitle="( ฝึกงาน )"
-        description={
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam fuga assumenda eius voluptatibus, sed dicta quisquam alias eum hic inventore modi, obcaecati facere, consequuntur unde commodi voluptate illo adipisci quidem."
-        }
+        description={`เมื่อขึ้นชั้นปีที่ 4 ได้ฝึกงานที่ IT One รับผิดชอบ Frontend (Angular) ในการเพิ่มและปรับปรุงหน้าจอของระบบที่มีอยู่แล้ว และ Backend (C#) ในการตรวจสอบและแก้ไข Bug ที่ได้รับรายงานจากผู้ใช้งาน`}
       ></TitleBox>
       <TitleBox
         number={"3"}
         title={"Digixworks"}
         bottomTitle="( ปัจจุบัน )"
         description={
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam fuga assumenda eius voluptatibus, sed dicta quisquam alias eum hic inventore modi, obcaecati facere, consequuntur unde commodi voluptate illo adipisci quidem."
+          "เริ่มต้นด้วยรับผิดชอบพัฒนา Frontend เป็นหลักในปีแรกโดยใช้ NextJs เป็นหลักและมี React Native (Mobile App) บ้าง หลังจากเริ่มเข้าที่เข้าทางก็หันมาจัดการ Backend (NestJs)"
         }
       ></TitleBox>
     </div>

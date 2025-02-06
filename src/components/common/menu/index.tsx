@@ -7,6 +7,7 @@ interface MenuItemProps {
   active?: boolean;
   href?: string;
   className?: string;
+  onClick?: () => void;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({
@@ -14,6 +15,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   active,
   href,
   className,
+  onClick,
 }) => {
   return (
     <Link className={className} href={href ?? "/"}>

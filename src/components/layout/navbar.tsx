@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import ContainerLayout from "./container";
@@ -42,12 +43,24 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
         <div className="h-20 flex items-center justify-between">
           <span className="font-bold text-3xl">Phichayoot</span>
           <div className="flex items-center justify-center">
-            {/* <MenuItem className="hidden lg:block" label="Home"></MenuItem> */}
-            <MenuItem className="hidden lg:block" label="About me"></MenuItem>
-            <MenuItem className="hidden lg:block" label="Work"></MenuItem>
+            <MenuItem
+              href="/#about"
+              className="hidden lg:block"
+              label="About me"
+            ></MenuItem>
+            <MenuItem
+              href="/#experience"
+              className="hidden lg:block"
+              label="Work"
+            ></MenuItem>
+            <MenuItem
+              href="/#skills"
+              className="hidden lg:block"
+              label="Skills"
+            ></MenuItem>
 
             <div className="pl-4">
-              <DarkMode></DarkMode> 
+              <DarkMode></DarkMode>
             </div>
           </div>
         </div>

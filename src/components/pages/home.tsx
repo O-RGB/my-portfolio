@@ -36,6 +36,29 @@ const Home: React.FC<HomeProps> = ({}) => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleHashChange = (e?: any) => {
+      // ป้องกันการเลื่อนแบบ default ของบราวเซอร์
+      e?.preventDefault();
+
+      // หน่วงเวลาเล็กน้อยเพื่อให้แน่ใจว่าบราวเซอร์ไม่ได้เลื่อนก่อน
+      setTimeout(() => {
+        const hash = window.location.hash.replace("#", "");
+        const section = document.getElementById(hash);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 50);
+    };
+
+    if (window.location.hash) {
+      handleHashChange();
+    }
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
   return (
     <GapContant>
       <ContainerLayout>

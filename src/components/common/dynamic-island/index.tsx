@@ -2,6 +2,9 @@ import DarkMode from "@/components/tools/dark-mode";
 import { motion } from "framer-motion";
 import React, { useEffect, useState, useRef } from "react";
 import DynamicDescription from "./description";
+import ButtonCommon from "../button";
+import { FaList } from "react-icons/fa";
+import ListMenu from "../menu/list-menu";
 
 interface DynamicIslandProps {
   onShow?: boolean;
@@ -9,9 +12,20 @@ interface DynamicIslandProps {
 
 const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
   const [hideOptions, setHideOptions] = useState<boolean>(false);
+  const [hovering, setHovering] = useState<boolean>(false);
+  const [allMenu, setAllMenu] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const close = () => {
+    setHideOptions(false);
+    setHovering(false);
+    setAllMenu(false);
+  };
+
   const onOptionsChange = () => {
+    if (hovering) {
+      return;
+    }
     setHideOptions(false);
 
     if (hideOptionsTimeout) {
@@ -22,6 +36,10 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
       setHideOptions(true);
     }, 2500);
     setHideOptionsTimeout(timeout);
+  };
+
+  const openAllMenu = () => {
+    setAllMenu(true);
   };
 
   const [hideOptionsTimeout, setHideOptionsTimeout] =
@@ -51,12 +69,19 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
     <motion.div
       layout
       ref={containerRef}
-      onHoverStart={() => setHideOptions(false)}
-      onHoverEnd={() => setHideOptions(true)}
+      onHoverStart={() => {
+        setHideOptions(false);
+        setHovering(true);
+      }}
+      onHoverEnd={() => {
+        setHideOptions(true);
+        setAllMenu(false);
+        setHovering(false);
+      }}
       onClick={onOptionsChange}
       initial={{ scale: 1 }}
       animate={{
-        paddingRight: !hideOptions ? "4rem" : "2.5rem",
+        paddingRight: !hideOptions ? "5.5rem" : "2.5rem",
       }}
       transition={{
         layout: {
@@ -72,7 +97,7 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
           duration: 1,
         },
       }}
-      className="flex items-center justify-center gap-6 rounded-full w-fit py-2 px-10 backdrop-blur-xl bg-black/40 shadow-lg group select-none cursor-default"
+      className={`relative rounded-[28px] flex flex-col w-fit py-2 px-10 backdrop-blur-xl bg-black/40 shadow-lg group select-none cursor-default`}
     >
       <motion.div layout className="flex items-center justify-center min-w-32">
         <DynamicDescription />
@@ -80,12 +105,44 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
 
       <motion.div
         layout
-        className={`absolute right-2 ${
+        className={`absolute right-12 top-2.5 ${
           !hideOptions ? "opacity-100" : "opacity-0"
         } duration-100`}
       >
         <DarkMode />
       </motion.div>
+
+      <motion.div
+        layout
+        className={`absolute right-2 top-2.5 ${
+          !hideOptions ? "opacity-100" : "opacity-0"
+        } duration-100`}
+      >
+        <ButtonCommon
+          onClick={openAllMenu}
+          icon={
+            <FaList
+              className={`text-sm transition-colors duration-300 text-white dark:text-black`}
+            />
+          }
+          isCircle
+          variant="custom"
+          customColor={`bg-[#000] dark:bg-[#fff] transition-colors duration-300`}
+        />
+      </motion.div>
+
+      <div
+        className={`${
+          allMenu ? "h-[8.2rem] opacity-100" : "h-0 opacity-0"
+        } duration-300 overflow-hidden -ml-[2rem] -mr-[5rem] `}
+      >
+        <div className="p-1.5 w-full">
+          <hr className="opacity-25" />
+          <ListMenu onClick={close} href="/#about" label="About me"></ListMenu>
+          <ListMenu onClick={close} href="/#experience" label="Work"></ListMenu>
+          <ListMenu onClick={close} href="/#skills" label="Skills"></ListMenu>
+        </div>
+      </div>
     </motion.div>
   );
 };
