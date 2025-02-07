@@ -33,6 +33,9 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
     }
 
     const timeout = setTimeout(() => {
+      if (hovering) {
+        return;
+      }
       setHideOptions(true);
     }, 2500);
     setHideOptionsTimeout(timeout);
@@ -66,6 +69,9 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
 
   useEffect(() => {
     onOptionsChange();
+    if (!onShow) {
+      close();
+    }
   }, [onShow]);
 
   return (
