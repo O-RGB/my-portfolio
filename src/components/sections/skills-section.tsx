@@ -6,14 +6,16 @@ import { motion, useInView } from "framer-motion";
 interface SkillsSectionProps {}
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
+  const duration = 3;
+  const space = 200;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: "some" });
   const Ai = (
     <motion.div
       className="w-full h-full"
-      initial={{ x: -200, opacity: 0 }}
+      initial={{ x: -space, opacity: 0 }}
       animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: "backInOut", duration: 4 }}
+      transition={{ ease: [0.4, 0, 0.2, 1], duration }}
     >
       <SkillsBox
         title="เรียนรู้การใช้ AI Chart"
@@ -43,9 +45,9 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
   const Frontend = (
     <motion.div
       className="w-full h-full"
-      initial={{ x: -200, opacity: 0 }}
+      initial={{ x: -space, opacity: 0 }}
       animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: "backInOut", duration: 4, delay: 0.3 }}
+      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
     >
       <SkillsBox
         bg="/images/skills/frontend/bg.png"
@@ -99,13 +101,14 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
   const Backend = (
     <motion.div
       className="w-full h-full"
-      initial={{ x: 200, opacity: 0 }}
+      initial={{ x: space, opacity: 0 }}
       animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: "backInOut", duration: 4 }}
+      transition={{ ease: [0.4, 0, 0.2, 1], duration }}
     >
       <SkillsBox
         title="Backend"
-        bg="/images/skills/database/bg.png"
+        bg="/images/skills/backend/bg-video.mp4"
+        isVideo
         contant={
           <div className="flex justify-between h-full ">
             <div>
@@ -131,7 +134,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       className="w-full h-full"
       initial={{ opacity: 0, scale: 0.7 }}
       animate={isInView ? { opacity: 1, scale: 1 } : undefined}
-      transition={{ ease: "backInOut", duration: 4, delay: 0.3 }}
+      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
     >
       <SkillsBox
         title="Databse"
@@ -159,9 +162,9 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
   const StyleSheets = (
     <motion.div
       className="w-full h-full"
-      initial={{ x: 200, opacity: 0 }}
+      initial={{ x: space, opacity: 0 }}
       animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: "backInOut", duration: 4, delay: 0.3 }}
+      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
     >
       <SkillsBox
         bg="/images/skills/utility/bg-1.png"
@@ -182,9 +185,9 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
   const Utility = (
     <motion.div
       className="w-full h-full"
-      initial={{ x: -200, opacity: 0 }}
+      initial={{ x: -space, opacity: 0 }}
       animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: "backInOut", duration: 4, delay: 0.5 }}
+      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
     >
       <SkillsBox
         contant={
@@ -211,9 +214,9 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
   const Python = (
     <motion.div
       className="w-full h-full"
-      initial={{ y: 200, opacity: 0 }}
+      initial={{ y: space, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : undefined}
-      transition={{ ease: "backInOut", duration: 4, delay: 0.5 }}
+      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
     >
       <SkillsBox
         bg="/images/skills/utility/bg-2.png"
@@ -242,9 +245,9 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
   const PHP = (
     <motion.div
       className="w-full h-full"
-      initial={{ x: 200, opacity: 0 }}
+      initial={{ x: space, opacity: 0 }}
       animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: "backInOut", duration: 4, delay: 0.5 }}
+      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
     >
       <SkillsBox
         contant={

@@ -70,13 +70,13 @@ const ImageCommon: React.FC<ImageCommonProps> = ({
         <Image
           src={src}
           alt={alt}
-          layout="fill"
+          fill
           className={`transition-opacity duration-300 ${
             isLoading ? "opacity-0" : "opacity-100"
           }`}
           unoptimized
           onError={handleError}
-          onLoadingComplete={handleLoadComplete}
+          onLoad={handleLoadComplete}
           style={{ objectFit }}
         />
       </div>

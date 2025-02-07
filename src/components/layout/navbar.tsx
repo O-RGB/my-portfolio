@@ -40,7 +40,7 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
         <DynamicIsland onShow={showDynamicIsland} />
       </motion.div>
       <ContainerLayout>
-        <div className="h-20 flex items-center justify-between">
+        <div className="h-28 flex items-center justify-between">
           <span className="font-bold text-3xl">Phichayoot</span>
           <div className="flex items-center justify-center">
             <MenuItem
@@ -57,6 +57,11 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
               href="/#skills"
               className="hidden lg:block"
               label="Skills"
+            ></MenuItem>
+            <MenuItem
+              href="/#project"
+              className="hidden lg:block"
+              label="Project"
             ></MenuItem>
 
             <div className="pl-4">

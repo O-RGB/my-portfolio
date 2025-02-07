@@ -10,6 +10,7 @@ const SercionValues: Record<string, ISectionData> = {
   about: { name: "About Me", description: "🍕 Code & Pizza!" },
   experience: { name: "Experience", description: "💻 Code & Coffee." },
   skills: { name: "Skills", description: "🛠️ Building the future" },
+  project: { name: "Project", description: "🌟 Building the dream." },
 };
 
 interface SectionStore {

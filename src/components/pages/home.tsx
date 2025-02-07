@@ -8,6 +8,8 @@ import AboutMeSection from "../sections/about-me-section";
 import WorkExperienceSection from "../sections/work-experience-section";
 import useSectionStore from "@/stores/section-store";
 import SkillsSection from "../sections/skills-section";
+import PreloadAssets from "../tools/preload";
+import ProjectSection from "../sections/project-section";
 
 interface HomeProps {}
 
@@ -81,8 +83,11 @@ const Home: React.FC<HomeProps> = ({}) => {
       </ContainerLayout>
       <ContainerLayout className="w-full overflow-hidden">
         <GapContant>
-          <div id="skills" className="scroll-section ">
+          <div id="skills" className="scroll-section">
             <SkillsSection></SkillsSection>
+          </div>
+          <div id="project" className="scroll-section">
+            <ProjectSection></ProjectSection>
           </div>
         </GapContant>
       </ContainerLayout>

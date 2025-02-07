@@ -141,7 +141,7 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
 
       <div
         className={`${
-          allMenu ? "h-[8.2rem] opacity-100" : "h-0 opacity-0"
+          allMenu ? "h-[10.7rem] opacity-100" : "h-0 opacity-0"
         } duration-300 overflow-hidden -ml-[2rem] -mr-[5rem] `}
       >
         <div className="p-1.5 w-full">
@@ -149,6 +149,7 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
           <ListMenu onClick={close} href="/#about" label="About me"></ListMenu>
           <ListMenu onClick={close} href="/#experience" label="Work"></ListMenu>
           <ListMenu onClick={close} href="/#skills" label="Skills"></ListMenu>
+          <ListMenu onClick={close} href="/#project" label="Project"></ListMenu>
         </div>
       </div>
     </motion.div>
