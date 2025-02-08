@@ -18,7 +18,10 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
       <ModalCommon isOpen={open} onClose={() => setOpen(false)}>
         test
       </ModalCommon>
-      <div ref={ref} className="relative grid grid-cols-3 gap-contant h-32">
+      <div
+        ref={ref}
+        className="relative grid grid-cols-3 gap-contant h-28 md:h-32"
+      >
         <motion.div
           className="w-full h-full col-span-2"
           initial={{ x: 100, opacity: 0 }}

@@ -32,8 +32,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
         children ? "grid grid-cols-1 md:grid-cols-2 gap-contant" : ""
       } ${className} h-full`}
     >
-      <div>
-        {/* <motion.div
+      <motion.div
         className={`${
           children
             ? reverse
@@ -45,14 +44,14 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
         initial={{ x: reverse ? 100 : -100, opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : undefined}
         transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.1 }}
-      > */}
-        <CardBox className="h-fit">
+      >
+        <CardBox>
           <PhoneScreen mode={mode} layout={layout}>
             {screenContant}
           </PhoneScreen>
         </CardBox>
-        {/* </motion.div> */}
-      </div>
+      </motion.div>
+
       {children && (
         <div
           className={`rounded-layout ${

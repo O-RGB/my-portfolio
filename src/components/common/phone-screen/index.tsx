@@ -9,12 +9,14 @@ interface PhoneScreenProps {
   layout?: AppleSereenType;
   children?: React.ReactNode;
   mode?: ApplePosition;
+  className?: string;
 }
 
 const PhoneScreen: React.FC<PhoneScreenProps> = ({
   layout = "iphone",
   mode = "portrait",
   children,
+  className,
 }) => {
   const rotate = mode === "landscape" ? "rotate-90" : "";
   const width =
@@ -28,11 +30,11 @@ const PhoneScreen: React.FC<PhoneScreenProps> = ({
 
   useEffect(() => {}, [layout]);
   return (
-    <div>
+    <div className="min-h-full min-w-full">
       <div
-        className={`${rotate} relative flex items-center justify-center aspect-square `}
+        className={`${rotate} ${className} relative flex items-center justify-center aspect-square`}
       >
-        <div className={`${width} absolute aspect-square overflow-hidden`}>
+        <div className={`${width} absolute aspect-square overflow-hidden shadow-xl drop-shadow-md`}>
           {children}
         </div>
         {layout === "iphone" ? (
