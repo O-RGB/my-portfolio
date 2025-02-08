@@ -50,7 +50,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
     >
       <SkillsBox
-        bg="/images/skills/frontend/bg.png"
+        bg="/images/skills/frontend/bg-video.mov"
+        isVideo
         title="Frontend"
         contant={
           <div className="flex flex-col justify-between h-full gap-4">

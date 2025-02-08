@@ -6,16 +6,20 @@ interface CardBoxProps {
   children?: React.ReactNode;
   className?: string;
   moreDetail?: boolean;
+  highlight?: boolean;
 }
 
 const CardBox: React.FC<CardBoxProps> = ({
   children,
   className,
   moreDetail,
+  highlight = true,
 }) => {
   return (
     <div
-      className={`relative p-6 bg-[#efe9e2] dark:bg-white/10 rounded-layout ${className}`}
+      className={`relative p-6 ${
+        highlight ? "bg-[#efe9e2]" : "bg-gray-100"
+      } dark:bg-white/10 rounded-layout ${className}`}
     >
       {children}
 

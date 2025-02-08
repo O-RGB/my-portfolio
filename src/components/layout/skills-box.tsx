@@ -23,7 +23,6 @@ const SkillsBox: React.FC<SkillsBoxProps> = ({
         <div className="absolute w-full h-full top-0 left-0 z-10 dark:brightness-[0.5] dark:contrast-150 duration-300">
           {isVideo ? (
             <VideoCommon
-              speed={0.75}
               src={bg}
               autoPlay
               loop

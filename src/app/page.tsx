@@ -43,11 +43,12 @@ interface HomeAppProps {}
 
 const HomeApp: React.FC<HomeAppProps> = ({}) => {
   return (
-    <>
+    <div className="relative">
+      <div className="absolute z-1 w-full h-full bg-white dark:bg-black duration-500"></div>
       <NavBar></NavBar>
       <Home></Home>
       <Footer></Footer>
-    </>
+    </div>
   );
 };
 
