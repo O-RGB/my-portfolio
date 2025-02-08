@@ -7,6 +7,7 @@ interface CardBoxProps {
   className?: string;
   moreDetail?: boolean;
   highlight?: boolean;
+  onClick?: () => void;
 }
 
 const CardBox: React.FC<CardBoxProps> = ({
@@ -14,6 +15,7 @@ const CardBox: React.FC<CardBoxProps> = ({
   className,
   moreDetail,
   highlight = true,
+  onClick,
 }) => {
   return (
     <div
@@ -25,7 +27,11 @@ const CardBox: React.FC<CardBoxProps> = ({
 
       {moreDetail && (
         <div className="absolute bottom-4 right-4">
-          <ButtonCommon icon={<FaPlus></FaPlus>} isCircle></ButtonCommon>
+          <ButtonCommon
+            onClick={onClick}
+            icon={<FaPlus></FaPlus>}
+            isCircle
+          ></ButtonCommon>
         </div>
       )}
     </div>

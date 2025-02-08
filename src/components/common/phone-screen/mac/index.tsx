@@ -5,13 +5,11 @@ interface MacBoockFrameProps {}
 
 const MacBoockFrame: React.FC<MacBoockFrameProps> = ({}) => {
   return (
-    <div className="relative w-full h-full">
-      <ImageCommon
-        src="/macbook-layout.png"
-        objectFit="contain"
-        className="w-full h-full"
-      ></ImageCommon>
-    </div>
+    <ImageCommon
+      src="/macbook-layout.png"
+      objectFit="contain"
+      containerClassName="w-full h-full"
+    ></ImageCommon>
   );
 };
 

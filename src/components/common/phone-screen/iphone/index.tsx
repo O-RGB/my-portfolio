@@ -8,7 +8,7 @@ const IPhoneFrame: React.FC<IPhoneFrameProps> = ({}) => {
     <ImageCommon
       src="/iphone-layout.png"
       objectFit="contain"
-      className="w-full h-full"
+      containerClassName="w-full h-full"
     ></ImageCommon>
   );
 };

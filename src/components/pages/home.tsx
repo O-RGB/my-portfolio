@@ -9,7 +9,7 @@ import WorkExperienceSection from "../sections/work-experience-section";
 import useSectionStore from "@/stores/section-store";
 import SkillsSection from "../sections/skills-section";
 import PreloadAssets from "../tools/preload";
-import ProjectSection from "../sections/project-section";
+import ProjectSection from "../sections/projects";
 
 interface HomeProps {}
 

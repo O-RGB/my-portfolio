@@ -7,20 +7,18 @@ interface ImageCommonProps {
   src?: string;
   alt?: string;
   className?: string;
-  layout?: any;
-  width?: number;
-  height?: number;
+  imageClassName?: string;
   objectFit?: "contain" | "cover" | "fill" | "none" | "scale-down";
+  containerClassName?: string;
 }
 
 const ImageCommon: React.FC<ImageCommonProps> = ({
   src,
   alt = "Image",
   className = "",
-  layout,
-  height,
-  width = 200,
+  imageClassName = "",
   objectFit = "cover",
+  containerClassName = "",
 }) => {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,8 +35,7 @@ const ImageCommon: React.FC<ImageCommonProps> = ({
   if (isError) {
     return (
       <div
-        className={`relative flex flex-col items-center justify-center bg-gray-100 w-full overflow-hidden ${className}`}
-        style={{ height }}
+        className={`relative flex flex-col items-center justify-center bg-gray-100 overflow-hidden h-full ${className}`}
       >
         <BiErrorCircle className="text-red-500 text-3xl mb-2" />
         <p className="text-sm text-red-500">Unable to load image</p>
@@ -49,8 +46,7 @@ const ImageCommon: React.FC<ImageCommonProps> = ({
   if (!src) {
     return (
       <div
-        className={`relative flex flex-col items-center justify-center bg-gray-100 w-full overflow-hidden ${className}`}
-        style={{ height }}
+        className={`relative flex flex-col items-center justify-center bg-gray-100 overflow-hidden h-full ${className}`}
       >
         <IoImageOutline className="text-gray-400 text-3xl mb-2" />
         <p className="text-sm text-gray-500">No image</p>
@@ -59,25 +55,22 @@ const ImageCommon: React.FC<ImageCommonProps> = ({
   }
 
   return (
-    <div
-      className={`relative w-full overflow-hidden  ${className}`}
-      style={{ height }}
-    >
-      {isLoading && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
-      )}
-      <div className="relative w-full h-full ">
+    <div className={`relative h-full ${containerClassName}`}>
+      <div className={`relative w-full h-full ${className}`}>
+        {isLoading && (
+          <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+        )}
         <Image
           src={src}
           alt={alt}
           fill
-          className={`transition-opacity duration-300 ${
+          className={`${imageClassName} transition-opacity duration-300 ${
             isLoading ? "opacity-0" : "opacity-100"
           }`}
+          style={{ objectFit }}
           unoptimized
           onError={handleError}
           onLoad={handleLoadComplete}
-          style={{ objectFit }}
         />
       </div>
     </div>
