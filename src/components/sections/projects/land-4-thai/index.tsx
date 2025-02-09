@@ -15,21 +15,22 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
       <div className="relative h-32 bg-[#207c04] rounded-layout p-3 overflow-hidden hidden md:block">
         <div className="absolute z-10 w-56 h-56 left-0 top-0">
           <ImageCommon
-            src="/images/project/l4t/L4T.png"
+            src="/images/project/land-4-thai/land-4-thai-overlay-preview.png"
             objectFit="contain"
             className="rotate-90 "
           ></ImageCommon>
         </div>
+
         <div className="absolute z-10 w-56 h-56 right-0 top-0">
           <ImageCommon
-            src="/images/project/l4t/L4T.png"
+            src="/images/project/land-4-thai/land-4-thai-overlay-preview.png"
             objectFit="contain"
             className="-rotate-90 "
           ></ImageCommon>
         </div>
 
         <ImageCommon
-          src="/images/project/l4t/l4i-logo.png"
+          src="/images/project/land-4-thai/land-4-thai-logo-app.png"
           objectFit="contain"
           className="w-full"
           containerClassName="relative z-20"
@@ -47,7 +48,7 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
             >
               <PhoneScreen layout={"iphone"}>
                 <ImageCommon
-                  src={"/images/project/l4t/screen.png"}
+                  src={"/images/project/land-4-thai/land-4-thai-screen.png"}
                   containerClassName="w-full h-full"
                 ></ImageCommon>
               </PhoneScreen>
@@ -61,7 +62,7 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
             >
               <PhoneScreen layout={"android"}>
                 <ImageCommon
-                  src={"/images/project/l4t/screen.png"}
+                  src={"/images/project/land-4-thai/land-4-thai-screen.png"}
                   containerClassName="w-full h-full"
                 ></ImageCommon>
               </PhoneScreen>
@@ -84,7 +85,7 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                 highlight={false}
               >
                 <ImageCommon
-                  src="/images/project/gur/icon.png"
+                  src="/images/project/gaysorn/gaysorn-icon.png"
                   containerClassName="w-full h-14 p-4 md:p-6"
                   objectFit="contain"
                 ></ImageCommon>

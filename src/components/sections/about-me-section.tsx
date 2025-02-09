@@ -15,7 +15,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ setReadMore }) => {
         <div className="col-span-1 md:col-span-2 hidden md:block">
           <ImageBox
             className="h-[300px] md:h-full"
-            srcImage="images/IMG_6946.JPG"
+            srcImage={"/images/about-me/about-me-3.JPG"}
           ></ImageBox>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 grid-rows-1 md:grid-rows-2 gap-contant w-full h-full">
@@ -41,15 +41,18 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ setReadMore }) => {
           </CardBox>
           <div className="col-span-1 row-span-1 h-full w-full hidden md:block">
             <GalleryImages
-              images={["/images/IMG_6943.JPG", "/images/IMG_6944.JPG"]}
+              images={[
+                "/images/about-me/about-me-1.JPG",
+                "/images/about-me/about-me-2.JPG",
+              ]}
             ></GalleryImages>
           </div>
           <div className="col-span-1 row-span-1 h-full w-full block md:hidden">
             <GalleryImages
               images={[
-                "images/IMG_6946.JPG",
-                "/images/IMG_6943.JPG",
-                "/images/IMG_6944.JPG",
+                "/images/about-me/about-me-3.JPG",
+                "/images/about-me/about-me-1.JPG",
+                "/images/about-me/about-me-2.JPG",
               ]}
             ></GalleryImages>
           </div>

@@ -6,7 +6,10 @@ interface IPadFrameProps {}
 const IPadFrame: React.FC<IPadFrameProps> = ({}) => {
   return (
     <div className="relative w-full h-full">
-      <ImageCommon src="/ipad-layout.png" objectFit="contain"></ImageCommon>
+      <ImageCommon
+        src="/images/phone-layout/ipad-layout.png"
+        objectFit="contain"
+      ></ImageCommon>
     </div>
   );
 };

@@ -6,7 +6,7 @@ interface IPhoneFrameProps {}
 const IPhoneFrame: React.FC<IPhoneFrameProps> = ({}) => {
   return (
     <ImageCommon
-      src="/iphone-layout.png"
+      src="/images/phone-layout/iphone-layout.png"
       objectFit="contain"
       containerClassName="w-full h-full"
     ></ImageCommon>

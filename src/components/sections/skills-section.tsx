@@ -50,7 +50,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
     >
       <SkillsBox
-        bg="/images/skills/frontend/bg-video.mov"
+        bg="/images/skills/frontend/skills-frontend.mp4"
         isVideo
         title="Frontend"
         contant={
@@ -64,7 +64,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
               <div className="flex flex-col items-center justify-center gap-1 h-14 w-9">
                 <ImageCommon
                   src="/images/skills/frontend/dnd.png"
-                  className="h-full w-full"
+                  containerClassName="w-full h-full"
                   objectFit="contain"
                 ></ImageCommon>
                 <span className="font-bold text-xs">DndKit</span>
@@ -72,7 +72,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
               <div className="flex flex-col items-center justify-center gap-1 h-14 w-9">
                 <ImageCommon
                   src="/images/skills/frontend/gql.png"
-                  className="h-full w-full"
+                  containerClassName="w-full h-full"
                   objectFit="contain"
                 ></ImageCommon>
                 <span className="font-bold text-xs">GraphQL</span>
@@ -80,7 +80,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
               <div className="flex flex-col items-center justify-center gap-1 h-14 w-9">
                 <ImageCommon
                   src="/images/skills/frontend/antd.png"
-                  className="h-full w-full"
+                  containerClassName="w-full h-full"
                   objectFit="contain"
                 ></ImageCommon>
                 <span className="font-bold text-xs">Antd</span>
@@ -88,7 +88,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
               <div className="flex flex-col items-center justify-center gap-1 h-14 w-9">
                 <ImageCommon
                   src="/images/skills/frontend/zustand.png"
-                  className="h-full w-full"
+                  containerClassName="w-full h-full"
                   objectFit="contain"
                 ></ImageCommon>
                 <span className="font-bold text-xs">Zustand</span>
@@ -108,7 +108,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
     >
       <SkillsBox
         title="Backend"
-        bg="/images/skills/backend/bg-video.mp4"
+        bg="/images/skills/backend/skills-backend-bg-2.mp4"
         isVideo
         contant={
           <div className="flex justify-between h-full ">
@@ -168,7 +168,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
     >
       <SkillsBox
-        bg="/images/skills/utility/bg-1.png"
+        bg="/images/skills/utility/skills-tailwind.png"
         contant={
           <div className="flex justify-center items-center h-full py-8 lg:py-0">
             <div className="w-full h-8">
@@ -220,7 +220,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
     >
       <SkillsBox
-        bg="/images/skills/utility/bg-2.png"
+        bg="/images/skills/utility/skills-python.png"
         contant={
           <div className="flex justify-between items-center h-full ">
             <div>

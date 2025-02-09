@@ -1,12 +1,8 @@
-import ButtonCommon from "@/components/common/button";
 import CardBox from "@/components/common/card";
 import CardContant from "@/components/common/card/card-contant";
-import TruncateText from "@/components/common/html/truncate-text";
 import ImageCommon from "@/components/common/image";
-import ModalCommon from "@/components/common/modal";
-import Tag from "@/components/common/tags";
 import { motion, useInView } from "framer-motion";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 interface GaysornurbanresortProps {}
 
@@ -31,7 +27,7 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
             highlight={false}
           >
             <ImageCommon
-              src="/images/project/gur/icon.png"
+              src="/images/project/gaysorn/gaysorn-icon.png"
               containerClassName="w-full h-14 p-4 md:p-6"
               objectFit="contain"
             ></ImageCommon>
@@ -78,14 +74,7 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
           <CardContant
             tags={["test", "2020"]}
             moreDetail={<>test</>}
-            title={
-              <>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                quis eum architecto sunt, ipsa cumque assumenda dolorum corporis
-                autem illum asperiores suscipit earum nulla, quo beatae quod
-                perspiciatis, nostrum atque.
-              </>
-            }
+            title={<>Lorem ipsum dolor sit amet consectetur</>}
             description={
               <>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -95,6 +84,26 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
                 ipsum dolor sit amet consectetur adipisicing elit. Ipsum
                 quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
                 ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
               </>
             }
           ></CardContant>

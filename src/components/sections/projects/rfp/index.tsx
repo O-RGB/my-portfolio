@@ -1,25 +1,21 @@
 import CardBox from "@/components/common/card";
 import CardContant from "@/components/common/card/card-contant";
 import ImageCommon from "@/components/common/image";
-import ModalCommon from "@/components/common/modal";
-import Tag from "@/components/common/tags";
 import { motion, useInView } from "framer-motion";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
-interface GaysornurbanresortProps {}
+interface RfpProjectProps {}
 
-const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
+const RfpProject: React.FC<RfpProjectProps> = ({}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: "some" });
 
-  const [open, setOpen] = useState<boolean>(false);
-
   return (
     <>
-      <ModalCommon isOpen={open} onClose={() => setOpen(false)}>
-        test
-      </ModalCommon>
-      <div ref={ref} className="relative grid grid-cols-3 gap-contant h-fit">
+      <div
+        ref={ref}
+        className="relative grid grid-cols-3 gap-contant h-20 md:h-28"
+      >
         <motion.div
           className="w-full h-full col-span-2"
           initial={{ x: 100, opacity: 0 }}
@@ -31,8 +27,8 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
             highlight={false}
           >
             <ImageCommon
-              src="/images/project/gur/icon.png"
-              className="w-full h-14 p-2"
+              src="/images/project/gaysorn/gaysorn-icon.png"
+              containerClassName="w-full h-14 p-4 md:p-6"
               objectFit="contain"
             ></ImageCommon>
           </CardBox>
@@ -44,22 +40,22 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
           transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.2 }}
         >
           <CardBox
-            className="relative w-full !p-4 flex items-center justify-center gap-2"
+            className="relative w-full h-full !p-4 flex items-center justify-center gap-2"
             highlight={false}
           >
             <ImageCommon
               src="/images/skills/frontend/nextjs.png"
-              className="w-14 h-14 hidden dark:block"
+              containerClassName="w-14 h-14 hidden dark:block"
               objectFit="contain"
             ></ImageCommon>
             <ImageCommon
               src="/images/skills/frontend/nextjs-dark.png"
-              className="w-14 h-14 block dark:hidden"
+              containerClassName="w-14 h-14 block dark:hidden"
               objectFit="contain"
             ></ImageCommon>
             <ImageCommon
               src="/images/skills/backend/php.png"
-              className="w-14 h-14"
+              containerClassName="w-14 h-14"
               objectFit="contain"
             ></ImageCommon>
           </CardBox>
@@ -73,21 +69,13 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
       >
         <CardBox
           moreDetail
-          className="md:h-[400px] flex flex-col gap-4"
+          className="h-full flex flex-col gap-4"
           highlight={false}
-          onClick={() => setOpen(true)}
         >
           <CardContant
             tags={["test", "2020"]}
             moreDetail={<>test</>}
-            title={
-              <>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-                quis eum architecto sunt, ipsa cumque assumenda dolorum corporis
-                autem illum asperiores suscipit earum nulla, quo beatae quod
-                perspiciatis, nostrum atque.
-              </>
-            }
+            title={<>Lorem ipsum dolor sit amet</>}
             description={
               <>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -106,4 +94,4 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
   );
 };
 
-export default Gaysornurbanresort;
+export default RfpProject;

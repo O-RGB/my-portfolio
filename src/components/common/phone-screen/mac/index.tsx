@@ -6,7 +6,7 @@ interface MacBoockFrameProps {}
 const MacBoockFrame: React.FC<MacBoockFrameProps> = ({}) => {
   return (
     <ImageCommon
-      src="/macbook-layout.png"
+      src="/images/phone-layout/macbook-layout.png"
       objectFit="contain"
       containerClassName="w-full h-full"
     ></ImageCommon>
