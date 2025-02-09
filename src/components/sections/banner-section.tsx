@@ -14,8 +14,8 @@ const BannerSection: React.FC<BannerSectionProps> = ({
   return (
     <>
       <ImageBox
-        srcImage="images/banner/b-banner.png"
-        srcVideo="images/banner/b-banner.mov"
+        srcImage="images/banner/a-banner.png"
+        srcVideo="images/banner/b-banner.mp4"
         onVideoEnd={() => {
           onVideoEnd?.(true);
         }}

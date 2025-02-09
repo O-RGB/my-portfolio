@@ -56,7 +56,6 @@ const ModalCommon: React.FC<ModalCommonProps> = ({
               <div
                 className={`overflow-y-auto h-full py-8 lg:py-16 px-6 lg:px-16 [&::-webkit-scrollbar]:hidden`}
               >
-                <div className="pt-3"></div>
                 {children}
               </div>
 

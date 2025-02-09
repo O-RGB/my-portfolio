@@ -30,7 +30,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
     <div
       className={`${
         children ? "grid grid-cols-1 md:grid-cols-2 gap-contant" : ""
-      } ${className} h-full`}
+      } ${className} h-full md:aspect-video`}
     >
       <motion.div
         className={`${
@@ -45,10 +45,12 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
         animate={isInView ? { x: 0, opacity: 1 } : undefined}
         transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.1 }}
       >
-        <CardBox>
-          <PhoneScreen mode={mode} layout={layout}>
-            {screenContant}
-          </PhoneScreen>
+        <CardBox className="h-full flex items-center justify-center">
+          <div className="w-full">
+            <PhoneScreen mode={mode} layout={layout}>
+              {screenContant}
+            </PhoneScreen>
+          </div>
         </CardBox>
       </motion.div>
 

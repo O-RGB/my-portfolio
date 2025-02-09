@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme";
 import "./globals.css";
 import PreloadAssets from "@/components/tools/preload";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Phichayoot Boonton",
@@ -15,6 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link
+          rel="preload"
+          href="/images/banner/b-banner.mp4"
+          as="video"
+          type="video/mp4"
+        />
+      </Head>
       <body className={`antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -22,7 +31,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false} // ให้เปลี่ยนเป็น false เพื่อให้การเปลี่ยนโหมดมีการ transition
         >
-          <PreloadAssets>{children}</PreloadAssets>
+          <>{children}</>
         </ThemeProvider>
       </body>
     </html>

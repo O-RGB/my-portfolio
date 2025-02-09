@@ -37,11 +37,10 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
             className="relative overflow-hidden aspect-video hidden md:block"
             highlight={false}
           >
-            <div className="absolute top-10 left-0 w-full flex items-center justify-center">
+            <div className="absolute top-12 left-0 w-full h-full flex items-center justify-center">
               <ImageCommon
                 src="/images/project/rfp/icon.png"
-                objectFit="contain"
-                containerClassName="w-full h-[8vw]"
+                className="w-[600px] h-[150px]"
               ></ImageCommon>
             </div>
             <motion.div
@@ -51,7 +50,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
               transition={{ ease: "anticipate", duration: 3 }}
             >
               <PhoneScreen layout="ipad" mode="landscape" className="scale-90">
-                <div className="relative w-full h-full pl-3">
+                <div className="relative w-full h-full pl-3 bg-white">
                   <ImageCommon src="/images/project/rfp/home.png"></ImageCommon>
                 </div>
               </PhoneScreen>
@@ -68,8 +67,8 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
           >
             <Gaysornurbanresort></Gaysornurbanresort>
           </ProjectBox>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-contant">
-            <CardBox className="!p-0 relative aspect-square" highlight={false}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-contant h-full">
+            <CardBox className="!p-0 relative h-full" highlight={false}>
               <div className="absolute w-full h-full">
                 <ImageCommon
                   src="/images/project/l4t/L4T.png"

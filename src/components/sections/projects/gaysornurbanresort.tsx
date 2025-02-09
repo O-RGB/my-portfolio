@@ -1,3 +1,4 @@
+import ButtonCommon from "@/components/common/button";
 import CardBox from "@/components/common/card";
 import ImageCommon from "@/components/common/image";
 import ModalCommon from "@/components/common/modal";
@@ -20,7 +21,7 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
       </ModalCommon>
       <div
         ref={ref}
-        className="relative grid grid-cols-3 gap-contant h-28 md:h-32"
+        className="relative grid grid-cols-3 gap-contant h-20 md:h-28"
       >
         <motion.div
           className="w-full h-full col-span-2"
@@ -34,7 +35,7 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
           >
             <ImageCommon
               src="/images/project/gur/icon.png"
-              containerClassName="w-full h-14 p-6"
+              containerClassName="w-full h-14 p-4 md:p-6"
               objectFit="contain"
             ></ImageCommon>
           </CardBox>
@@ -74,21 +75,102 @@ const Gaysornurbanresort: React.FC<GaysornurbanresortProps> = ({}) => {
         transition={{ ease: [0.4, 0, 0.2, 1], duration: 2 }}
       >
         <CardBox
-          moreDetail
           className="w-full h-full flex flex-col gap-4"
           highlight={false}
           onClick={() => setOpen(true)}
         >
-          <div className="flex gap-2">
+          <div className="flex gap-2 h-fit">
             <Tag label="2023"></Tag>
             <Tag label="Google Sheets"></Tag>
             <Tag label="Google App Script"></Tag>
           </div>
-          <div className="text-2xl">Lorem ipsum dolor sit,</div>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos delectus
-          repudiandae iusto pariatur modi suscipit. Quo aliquam nihil repellat
-          deleniti, recusandae molestiae qui, temporibus blanditiis nisi
-          accusamus, repudiandae dolor voluptate!...
+          <div className="relative h-full overflow-hidden md:fade-bottom">
+            <div className="md:absolute inset-0 overflow-y-hidden flex flex-col gap-4">
+              <span className="text-2xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Officiis, autem molestias
+              </span>
+
+              <span className="line-clamp-[10] md:line-clamp-[10] xl:line-clamp-[15]">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+              </span>
+            </div>
+          </div>
+
+          <div className="h-fit">
+            <ButtonCommon label="อ่านเพิ่มเติม"></ButtonCommon>
+          </div>
         </CardBox>
       </motion.div>
     </>
