@@ -26,8 +26,8 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
           <PhoneScreen layout={"ipad"} mode="landscape">
             <VideoCommon
               loop
-              src={"/images/skills/backend/bg-video-2.mp4"}
-              className="rotate-90 w-full h-full scale-[2.5]"
+              src={"/images/project/karaoke/ipad-karaoke.mp4"}
+              className="w-full h-full p-0.5"
               autoPlay
             ></VideoCommon>
           </PhoneScreen>
@@ -48,8 +48,8 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
             <PhoneScreen layout={"iphone"}>
               <VideoCommon
                 loop
-                src={"/images/skills/backend/bg-video-2.mp4"}
-                className="rotate-90 w-full h-full scale-[2.5]"
+                src={"/images/project/karaoke/remote.mp4"}
+                className=" w-full h-full p-[1vw] md:p-2 pt-[3.5vw] md:pt-8 scale-[1.05] bg-[#64758c]"
                 autoPlay
               ></VideoCommon>
             </PhoneScreen>
