@@ -37,7 +37,7 @@ const AboutMeModal: React.FC<AboutMeModalProps> = ({
 
             <ImageBox
               className="h-[200px] w-full"
-              srcImage="/images/about-me/me.jpg"
+              srcImage="/images/about-me/about-me-modal.jpg"
             ></ImageBox>
 
             <Quotes

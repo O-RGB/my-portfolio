@@ -129,14 +129,7 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
               <CardContant
                 tags={["test", "2020"]}
                 moreDetail={<>test</>}
-                title={
-                  <>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Tempore quis eum architecto sunt, ipsa cumque assumenda
-                    dolorum corporis autem illum asperiores suscipit earum
-                    nulla, quo beatae quod perspiciatis, nostrum atque.
-                  </>
-                }
+                title={<>Lorem ipsum dolor sit amet</>}
                 description={
                   <>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -146,6 +139,35 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                     repellat. lines Lorem ipsum dolor sit amet consectetur
                     adipisicing elit. Ipsum quisquam impedit sequi? Dolorum
                     deleniti aliquam exercitationem ullam vitae
+                    <br />
+                    <br />
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                    maxime vero fugit reiciendis mollitia perspiciatis
+                    laboriosam. Suscipit, quis quasi! Quasi ex deserunt
+                    repellat. lines Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Ipsum quisquam impedit sequi? Dolorum
+                    deleniti aliquam exercitationem ullam vitae
+                    <br />
+                    <br />
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                    maxime vero fugit reiciendis mollitia perspiciatis
+                    laboriosam. Suscipit, quis quasi! Quasi ex deserunt
+                    repellat. lines Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Ipsum quisquam impedit sequi? Dolorum
+                    deleniti aliquam exercitationem ullam vitae
+                    <br />
+                    <br />
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                    maxime vero fugit reiciendis mollitia perspiciatis
+                    laboriosam. Suscipit, quis quasi! Quasi ex deserunt
+                    repellat. lines Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Ipsum quisquam impedit sequi? Dolorum
+                    deleniti aliquam exercitationem ullam vitae
+                    <br />
+                    <br />
                   </>
                 }
               ></CardContant>

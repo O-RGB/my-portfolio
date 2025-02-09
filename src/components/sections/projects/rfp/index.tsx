@@ -85,6 +85,35 @@ const RfpProject: React.FC<RfpProjectProps> = ({}) => {
                 ipsum dolor sit amet consectetur adipisicing elit. Ipsum
                 quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
                 ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Delectus qui corrupti aliquid, quae illo blanditiis, natus,
+                maxime vero fugit reiciendis mollitia perspiciatis laboriosam.
+                Suscipit, quis quasi! Quasi ex deserunt repellat. lines Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                quisquam impedit sequi? Dolorum deleniti aliquam exercitationem
+                ullam vitae
+                <br />
+                <br />
               </>
             }
           ></CardContant>
