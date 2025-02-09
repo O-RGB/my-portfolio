@@ -12,7 +12,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ setReadMore }) => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-contant">
-        <div className="col-span-1 md:col-span-2 hidden md:block">
+        <div className="col-span-1 md:col-span-2 hidden md:block ">
           <ImageBox
             className="h-[300px] md:h-full"
             srcImage={"/images/about-me/about-me-3.jpg"}

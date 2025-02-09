@@ -29,7 +29,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange={false} // ให้เปลี่ยนเป็น false เพื่อให้การเปลี่ยนโหมดมีการ transition
+          disableTransitionOnChange={false}
         >
           <>{children}</>
         </ThemeProvider>
