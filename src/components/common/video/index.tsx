@@ -5,7 +5,7 @@ interface VideoCommonProps {
   className?: string;
   autoPlay?: boolean;
   loop?: boolean;
-  speed?: number; // เพิ่ม prop สำหรับ speed
+  speed?: number;
   onLoaded?: (duration: number) => void;
   onTimeUpdate?: (currentTime: number, duration: number) => void;
   onEnded?: () => void;
@@ -16,7 +16,7 @@ const VideoCommon: React.FC<VideoCommonProps> = ({
   className,
   autoPlay,
   loop,
-  speed = 1, // ตั้งค่าเริ่มต้นเป็น 1 (ปกติ)
+  speed = 1,
   onLoaded,
   onTimeUpdate,
   onEnded,
@@ -27,7 +27,7 @@ const VideoCommon: React.FC<VideoCommonProps> = ({
     if (videoRef.current) {
       videoRef.current.playbackRate = speed;
     }
-  }, [speed]); // อัปเดตความเร็วเมื่อค่า speed เปลี่ยนแปลง
+  }, [speed]);
 
   return (
     <video
