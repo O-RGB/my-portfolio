@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import ProjectBox from "../../layout/project-box";
 import VideoCommon from "../../common/video";
-import Gaysornurbanresort from "./gaysornurbanresort";
+import Gaysornurbanresort from "./gur";
 import ImageCommon from "@/components/common/image";
-import layout from "@/app/layout";
 import CardBox from "@/components/common/card";
 import PhoneScreen from "@/components/common/phone-screen";
 import { motion, useInView } from "framer-motion";
+import Land4ThaiScreen from "./l4t";
+import NextKaraoke from "./karaoke";
 
 interface ProjectSectionProps {}
 
@@ -34,16 +35,20 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
           </ProjectBox>
 
           <CardBox
-            className="relative overflow-hidden aspect-video hidden md:block"
+            className="relative overflow-hidden aspect-video hidden md:block fade-bottom"
             highlight={false}
           >
-            <div className="absolute top-12 left-0 w-full h-full flex items-center justify-center">
-              <ImageCommon
-                src="/images/project/rfp/icon.png"
-                className="w-[600px] h-[150px]"
-              ></ImageCommon>
+            <div className="absolute top-12 left-0 right-0 flex items-center justify-center z-10">
+              <div className="w-[600px] h-[150px]">
+                <ImageCommon
+                  src="/images/project/rfp/icon.png"
+                  objectFit="contain"
+                  containerClassName="w-full h-full"
+                ></ImageCommon>
+              </div>
             </div>
             <motion.div
+              className="relative z-20"
               ref={ref}
               initial={{ y: 200, scale: 1.5 }}
               animate={isInView ? { y: 0, scale: 1 } : undefined}
@@ -67,19 +72,11 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
           >
             <Gaysornurbanresort></Gaysornurbanresort>
           </ProjectBox>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-contant h-full">
-            <CardBox className="!p-0 relative h-full" highlight={false}>
-              <div className="absolute w-full h-full">
-                <ImageCommon
-                  src="/images/project/l4t/L4T.png"
-                  containerClassName="w-full h-full"
-                ></ImageCommon>
-              </div>
-            </CardBox>
-            <div className="flex flex-col gap-contant h-full">
-              <Gaysornurbanresort></Gaysornurbanresort>
-            </div>
-          </div>
+
+          {/* <Land4ThaiProject></Land4ThaiProject> */}
+          <Land4ThaiScreen></Land4ThaiScreen>
+
+          <NextKaraoke></NextKaraoke>
         </div>
       </div>
     </>

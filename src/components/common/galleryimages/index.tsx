@@ -6,10 +6,10 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay, EffectCreative } from "swiper/modules";
 import ImageBox from "../banner/image-box";
 
-import React from "react";
+import React, { isValidElement, JSX } from "react";
 
 interface GalleryImagesProps {
-  images?: string[];
+  images?: (string | JSX.Element)[];
 }
 
 const GalleryImages: React.FC<GalleryImagesProps> = ({ images = [] }) => {
@@ -43,11 +43,18 @@ const GalleryImages: React.FC<GalleryImagesProps> = ({ images = [] }) => {
       }}
       className=" [&_.swiper-pagination-bullet]:bg-white [&_.swiper-pagination-bullet-active]:bg-white"
     >
-      {images.map((img, index) => (
-        <SwiperSlide key={index}>
-          <ImageBox className="w-full h-[300px]" srcImage={img}></ImageBox>
-        </SwiperSlide>
-      ))}
+      {images.map((img, index) =>
+        isValidElement(img) ? (
+          <SwiperSlide key={`node-i-${index}`}>{img}</SwiperSlide>
+        ) : (
+          <SwiperSlide key={index}>
+            <ImageBox
+              className="w-full h-[300px]"
+              srcImage={img as string}
+            ></ImageBox>
+          </SwiperSlide>
+        )
+      )}
     </Swiper>
   );
 };

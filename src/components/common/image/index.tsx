@@ -55,7 +55,9 @@ const ImageCommon: React.FC<ImageCommonProps> = ({
   }
 
   return (
-    <div className={`relative h-full ${containerClassName}`}>
+    <div
+      className={`relative min-h-full max-h-full h-full ${containerClassName}`}
+    >
       <div className={`relative w-full h-full ${className}`}>
         {isLoading && (
           <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>

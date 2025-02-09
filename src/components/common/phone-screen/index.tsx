@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import ImageCommon from "../image";
 import IPhoneFrame from "./iphone";
 import IPadFrame from "./ipad";
 import MacBoockFrame from "./mac";
 import { ApplePosition, AppleSereenType } from "@/types/general.type";
+import AndroidFrame from "./android";
 
 interface PhoneScreenProps {
   layout?: AppleSereenType;
@@ -26,6 +26,8 @@ const PhoneScreen: React.FC<PhoneScreenProps> = ({
       ? `w-[66%] h-[94%] rounded-[3%]`
       : layout === `macbook`
       ? `w-[80%] h-[52%] rounded-[3%] rounded-[3%] overflow-hidden mb-[5.3%]`
+      : layout === "android"
+      ? `w-[45%] h-[98%] rounded-[8%]`
       : ``;
 
   useEffect(() => {}, [layout]);
@@ -34,7 +36,9 @@ const PhoneScreen: React.FC<PhoneScreenProps> = ({
       <div
         className={`${rotate} ${className} relative flex items-center justify-center aspect-square`}
       >
-        <div className={`${width} absolute aspect-square overflow-hidden shadow-xl drop-shadow-md`}>
+        <div
+          className={`${width} absolute aspect-square overflow-hidden shadow-xl drop-shadow-md`}
+        >
           {children}
         </div>
         {layout === "iphone" ? (
@@ -43,6 +47,8 @@ const PhoneScreen: React.FC<PhoneScreenProps> = ({
           <IPadFrame />
         ) : layout === "macbook" ? (
           <MacBoockFrame />
+        ) : layout === "android" ? (
+          <AndroidFrame />
         ) : (
           <></>
         )}
