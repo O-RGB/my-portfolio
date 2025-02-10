@@ -65,7 +65,6 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
   useEffect(() => {
     async function loadFiles() {
       try {
-        // ✅ รวมจำนวนไฟล์ทั้งหมดที่ต้องโหลด
         const totalFiles = fileList.images.length + fileList.videos.length;
         let loadedFiles = 0;
 
@@ -74,9 +73,9 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
           setProgress((loadedFiles / totalFiles) * 100);
         };
 
-        // ✅ โหลดรูปภาพทั้งหมด
+        // Load images
         const imagePromises = fileList.images.map((image) => {
-          return new Promise((resolve, reject) => {
+          return new Promise((resolve) => {
             const img = new Image();
             img.src = image;
             img.onload = () => {
@@ -84,34 +83,38 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
               resolve(img);
             };
             img.onerror = () => {
-              console.warn(`Failed to load image: ${image}`);
               updateProgress();
-              resolve(null); // ไม่ให้โหลดค้างหากไฟล์เสีย
+              resolve(null);
             };
           });
         });
 
-        // ✅ โหลดวิดีโอทั้งหมด
+        // Load videos with Safari compatibility
         const videoPromises = fileList.videos.map((video) => {
-          return new Promise((resolve, reject) => {
+          return new Promise((resolve) => {
             const vid = document.createElement("video");
-            vid.src = video;
-            vid.crossOrigin = "anonymous";
-            vid.preload = "metadata"; // เปลี่ยนจาก "auto" เป็น "metadata"
+            vid.muted = true;
+            vid.playsInline = true;
 
-            vid.onloadeddata = () => {
+            const handleLoad = () => {
               updateProgress();
               resolve(vid);
             };
-            vid.onerror = () => {
-              console.warn(`Failed to load video: ${video}`);
+
+            const handleError = () => {
               updateProgress();
-              resolve(null); // ไม่ให้โหลดค้างหากไฟล์เสีย
+              resolve(null);
             };
+
+            vid.addEventListener("loadedmetadata", handleLoad, { once: true });
+            vid.addEventListener("error", handleError, { once: true });
+
+            vid.src = video;
+            vid.load();
           });
         });
 
-        // ✅ รอให้โหลดทุกไฟล์เสร็จ
+        // Load images first, then videos
         await Promise.all([...imagePromises, ...videoPromises]);
       } catch (error) {
         console.error("Error loading assets:", error);
