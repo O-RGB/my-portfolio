@@ -64,7 +64,7 @@ const Home: React.FC<HomeProps> = ({}) => {
   return (
     <GapContant>
       <ContainerLayout>
-        <AboutMeModal open={open} setOpen={setOpen}></AboutMeModal>
+        {/* <AboutMeModal open={open} setOpen={setOpen}></AboutMeModal> */}
         <GapContant>
           <div id="banner" className="scroll-section">
             <BannerSection videoEnd={hide} onVideoEnd={setHide}></BannerSection>

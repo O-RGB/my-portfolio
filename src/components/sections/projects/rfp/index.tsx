@@ -12,10 +12,7 @@ const RfpProject: React.FC<RfpProjectProps> = ({}) => {
 
   return (
     <>
-      <div
-        ref={ref}
-        className="relative grid grid-cols-3 gap-contant h-20 md:h-28"
-      >
+      <div ref={ref} className="relative grid grid-cols-3 gap-contant h-20 ">
         <motion.div
           className="w-full h-full col-span-2"
           initial={{ x: 100, opacity: 0 }}
@@ -28,7 +25,7 @@ const RfpProject: React.FC<RfpProjectProps> = ({}) => {
           >
             <ImageCommon
               src="/images/project/gaysorn/gaysorn-icon.png"
-              containerClassName="w-full h-14 p-4 md:p-6"
+              containerClassName="w-full h-14 p-5"
               objectFit="contain"
             ></ImageCommon>
           </CardBox>

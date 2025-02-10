@@ -30,7 +30,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
     <div
       className={`${
         children ? "grid grid-cols-1 md:grid-cols-2 gap-contant" : ""
-      } ${className} h-full md:aspect-video`}
+      } ${className} card-limit-height`}
     >
       <motion.div
         className={`${

@@ -83,6 +83,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.card-limit-height {
+  @apply h-auto md:h-[500px] lg:h-[600px];
+}
+
 @layer base {
   :root {
     --fade-gradient-top: linear-gradient(

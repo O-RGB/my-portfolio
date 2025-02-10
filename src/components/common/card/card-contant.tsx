@@ -31,21 +31,24 @@ const CardContant: React.FC<CardContantProps> = ({
         {moreDetail}
       </ModalCommon>
       <div className="flex flex-col gap-4 h-full">
-        <div className="flex flex-wrap gap-2 h-fit">
-          {tags?.map((ls, i) => {
-            return (
-              <React.Fragment key={`tag-contant-${i}`}>
-                <Tag label={ls}></Tag>
-              </React.Fragment>
-            );
-          })}
-        </div>
+        {tags && tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 h-fit">
+            {tags?.map((ls, i) => {
+              return (
+                <React.Fragment key={`tag-contant-${i}`}>
+                  <Tag label={ls}></Tag>
+                </React.Fragment>
+              );
+            })}
+          </div>
+        )}
 
         <TruncateText title={title} description={description}></TruncateText>
 
         {moreDetail && (
           <div className="h-fit">
             <ButtonCommon
+              variant="transparent"
               onClick={handleOpenModal}
               label="อ่านเพิ่มเติม"
             ></ButtonCommon>

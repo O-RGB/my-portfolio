@@ -13,7 +13,7 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
   return (
     <>
       <CardBox
-        className="aspect-square md:aspect-video relative flex items-center justify-center"
+        className="card-limit-height relative flex items-center justify-center"
         highlight={false}
       >
         <motion.div
