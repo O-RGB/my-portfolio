@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState, ReactNode } from "react";
+
 const fileList: FileList = {
   images: [
     "/images/about-me/about-me-3.jpg",
@@ -64,19 +65,13 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
   useEffect(() => {
     async function loadFiles() {
       try {
-        // ✅ โหลด preload.json
-        const response = await fetch("/preload.json");
-        if (!response.ok) throw new Error("Failed to load preload.json");
-
-        // const fileList: FileList = await response.json();
-
         // ✅ รวมจำนวนไฟล์ทั้งหมดที่ต้องโหลด
         const totalFiles = fileList.images.length + fileList.videos.length;
         let loadedFiles = 0;
 
         const updateProgress = () => {
-          setProgress(((loadedFiles + 1) / totalFiles) * 100);
           loadedFiles++;
+          setProgress((loadedFiles / totalFiles) * 100);
         };
 
         // ✅ โหลดรูปภาพทั้งหมด
@@ -101,8 +96,8 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
           return new Promise((resolve, reject) => {
             const vid = document.createElement("video");
             vid.src = video;
-            vid.crossOrigin = "anonymous"; // ✅ ป้องกันโหลดซ้ำ
-            vid.preload = "auto";
+            vid.crossOrigin = "anonymous";
+            vid.preload = "metadata"; // เปลี่ยนจาก "auto" เป็น "metadata"
 
             vid.onloadeddata = () => {
               updateProgress();
@@ -111,7 +106,7 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
             vid.onerror = () => {
               console.warn(`Failed to load video: ${video}`);
               updateProgress();
-              resolve(null);
+              resolve(null); // ไม่ให้โหลดค้างหากไฟล์เสีย
             };
           });
         });
