@@ -32,7 +32,7 @@ const VideoCommon: React.FC<VideoCommonProps> = ({
   return (
     <video
       ref={videoRef}
-      preload="auto"
+      preload="preload"
       className={className}
       src={src}
       autoPlay={autoPlay}

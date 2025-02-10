@@ -31,7 +31,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <>{children}</>
+          <PreloadAssets>{children}</PreloadAssets>
         </ThemeProvider>
       </body>
     </html>

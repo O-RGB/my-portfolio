@@ -17,49 +17,60 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
   useEffect(() => {
     async function loadFiles() {
       try {
-        // 1. โหลด preload.json
+        // ✅ โหลด preload.json
         const response = await fetch("/preload.json");
+        if (!response.ok) throw new Error("Failed to load preload.json");
+
         const fileList: FileList = await response.json();
 
-        // 2. รวมจำนวนไฟล์ทั้งหมดที่ต้องโหลด
+        // ✅ รวมจำนวนไฟล์ทั้งหมดที่ต้องโหลด
         const totalFiles = fileList.images.length + fileList.videos.length;
         let loadedFiles = 0;
 
-        // 3. โหลดรูปภาพ
-        const imagePromises = fileList.images.map((image: string) => {
+        const updateProgress = () => {
+          setProgress(((loadedFiles + 1) / totalFiles) * 100);
+          loadedFiles++;
+        };
+
+        // ✅ โหลดรูปภาพทั้งหมด
+        const imagePromises = fileList.images.map((image) => {
           return new Promise((resolve, reject) => {
             const img = new Image();
             img.src = image;
             img.onload = () => {
-              loadedFiles++;
-              setProgress((loadedFiles / totalFiles) * 100);
+              updateProgress();
               resolve(img);
             };
-            img.onerror = reject;
+            img.onerror = () => {
+              console.warn(`Failed to load image: ${image}`);
+              updateProgress();
+              resolve(null); // ไม่ให้โหลดค้างหากไฟล์เสีย
+            };
           });
         });
 
-        // // 4. โหลดวิดีโอ
-        // const videoPromises = fileList.videos.map((video: string) => {
-        //   return new Promise((resolve, reject) => {
-        //     const videoElement = document.createElement("video");
-        //     // เพิ่ม event listeners สำหรับ metadata เพื่อให้รู้ว่าวิดีโอพร้อมเล่น
-        //     videoElement.addEventListener("loadedmetadata", () => {
-        //       loadedFiles++;
-        //       setProgress((loadedFiles / totalFiles) * 100);
-        //       resolve(videoElement);
-        //     });
-        //     videoElement.addEventListener("error", reject);
-        //     // ตั้งค่า preload เป็น 'metadata' เพื่อโหลดเฉพาะข้อมูลที่จำเป็น
-        //     videoElement.preload = "metadata";
-        //     videoElement.src = video;
-        //   });
-        // });
+        // ✅ โหลดวิดีโอทั้งหมด
+        const videoPromises = fileList.videos.map((video) => {
+          return new Promise((resolve, reject) => {
+            const vid = document.createElement("video");
+            vid.src = video;
+            vid.preload = "auto"; // โหลดวิดีโอล่วงหน้า
+            vid.onloadeddata = () => {
+              updateProgress();
+              resolve(vid);
+            };
+            vid.onerror = () => {
+              console.warn(`Failed to load video: ${video}`);
+              updateProgress();
+              resolve(null);
+            };
+          });
+        });
 
-        // 5. รอให้โหลดทุกไฟล์เสร็จ
-        await Promise.all([...imagePromises]);
+        // ✅ รอให้โหลดทุกไฟล์เสร็จ
+        await Promise.all([...imagePromises, ...videoPromises]);
       } catch (error) {
-        console.error("Error loading files:", error);
+        console.error("Error loading assets:", error);
       } finally {
         setLoading(false);
       }
@@ -73,7 +84,7 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
       <div className="fixed inset-0 flex flex-col items-center justify-center bg-white">
         <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
           <div
-            className="h-full bg-blue-600 transition-all duration-300"
+            className="h-full bg-blue-600 transition-[width] duration-500 ease-in-out"
             style={{ width: `${progress}%` }}
           />
         </div>
