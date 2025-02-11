@@ -1,8 +1,6 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { useState } from "react";
 import ImageCommon from "../image";
-// import VideoCommon from "../video";
-
-const VideoCommon = lazy(() => import("../video"));
+import VideoCommon from "../video";
 
 interface ImageBoxProps {
   srcImage?: string;
@@ -44,15 +42,15 @@ const ImageBox: React.FC<ImageBoxProps> = ({
         {srcVideo && (
           <div className="absolute top-0 left-0 bottom-0 w-full h-full">
             {/* <Suspense fallback={<p>Loading...</p>}> */}
-              <VideoCommon
-                onEnded={onEnded}
-                src={srcVideo}
-                className={`w-full h-full object-cover ${
-                  onEnd ? "opacity-0" : "opacity-100"
-                } transition-all duration-1000`}
-                loop={false}
-                autoPlay
-              ></VideoCommon>
+            <VideoCommon
+              onEnded={onEnded}
+              src={srcVideo}
+              className={`w-full h-full object-cover ${
+                onEnd ? "opacity-0" : "opacity-100"
+              } transition-all duration-1000`}
+              loop={false}
+              autoPlay
+            ></VideoCommon>
             {/* </Suspense> */}
           </div>
         )}

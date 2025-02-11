@@ -34,7 +34,6 @@ const VideoCommon: React.FC<VideoCommonProps> = ({
       ref={videoRef}
       preload="auto"
       className={className}
-      src={src}
       autoPlay={autoPlay}
       loop={loop}
       muted
@@ -45,7 +44,9 @@ const VideoCommon: React.FC<VideoCommonProps> = ({
         onTimeUpdate(e.currentTarget.currentTime, e.currentTarget.duration)
       }
       onEnded={() => onEnded && onEnded()}
-    />
+    >
+      <source src={src} type="video/mp4" />
+    </video>
   );
 };
 
