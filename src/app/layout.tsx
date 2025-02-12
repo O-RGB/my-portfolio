@@ -182,13 +182,13 @@ export default function RootLayout({
         <link
           rel="preload"
           as="video"
-          href="/images/skills/backend/skills-backend-bg-2.mp4"
+          href="/images/skills/backend/skills-backend-bg-2.webm"
           type="video/mp4"
         />
         <link
           rel="preload"
           as="video"
-          href="/images/banner/b-banner.mp4"
+          href="/images/banner/b-banner.webm"
           type="video/mp4"
         />
       </Head>

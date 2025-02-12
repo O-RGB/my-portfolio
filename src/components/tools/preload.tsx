@@ -44,8 +44,8 @@ const fileList: FileList = {
     "/images/project/karaoke/karaoke-ipad-screen.mp4",
     "/images/project/gaysorn/gaysorn-preview.mp4",
     "/images/skills/frontend/skills-frontend.mp4",
-    "/images/skills/backend/skills-backend-bg-2.mp4",
-    "/images/banner/b-banner.mp4",
+    "/images/skills/backend/skills-backend-bg-2.webm",
+    "/images/banner/b-banner.webm",
   ],
 };
 

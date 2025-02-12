@@ -108,7 +108,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
     >
       <SkillsBox
         title="Backend"
-        bg="/images/skills/backend/skills-backend-bg-2.mp4"
+        bg="/images/skills/backend/skills-backend-bg-2.webm"
         isVideo
         contant={
           <div className="flex justify-between h-full ">
