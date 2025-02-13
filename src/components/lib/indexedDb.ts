@@ -4,7 +4,8 @@ const CACHE_EXPIRY = 24 * 60 * 60 * 1000; // 24 ชั่วโมง
 
 type VideoCacheEntry = {
   id: string;
-  blob: Blob;
+  data: ArrayBuffer;
+  mimeType: string;
   timestamp: number;
 };
 
@@ -28,14 +29,16 @@ async function getCachedVideo(id: string): Promise<Blob | null> {
     const tx = db.transaction(STORE_NAME, "readonly");
     const store = tx.objectStore(STORE_NAME);
     const request = store.get(id);
+
     request.onsuccess = () => {
       const result = request.result as VideoCacheEntry | undefined;
       if (result && Date.now() - result.timestamp < CACHE_EXPIRY) {
-        resolve(result.blob);
+        resolve(new Blob([result.data], { type: result.mimeType }));
       } else {
         resolve(null);
       }
     };
+
     request.onerror = () => reject(request.error);
   });
 }
@@ -43,18 +46,24 @@ async function getCachedVideo(id: string): Promise<Blob | null> {
 async function saveVideoToCache(id: string, blob: Blob): Promise<void> {
   const db = await openDB();
   return new Promise((resolve, reject) => {
-    const tx = db.transaction(STORE_NAME, "readwrite");
-    const store = tx.objectStore(STORE_NAME);
-    store.put({ id, blob, timestamp: Date.now() } as VideoCacheEntry);
-    tx.oncomplete = () => resolve();
-    tx.onerror = () => reject(tx.error);
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(blob);
+    reader.onloadend = async () => {
+      const tx = db.transaction(STORE_NAME, "readwrite");
+      const store = tx.objectStore(STORE_NAME);
+      store.put({
+        id,
+        data: reader.result as ArrayBuffer,
+        mimeType: blob.type,
+        timestamp: Date.now(),
+      } as VideoCacheEntry);
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+    };
   });
 }
 
-export async function fetchAndCacheVideo(
-  videoId: string,
-  videoUrl: string
-): Promise<string | null> {
+export async function fetchAndCacheVideo(videoId: string, videoUrl: string): Promise<string | null> {
   const cachedBlob = await getCachedVideo(videoId);
   if (cachedBlob) {
     return URL.createObjectURL(cachedBlob);

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 interface VideoCommonProps {
-  src: string;
+  src?: string;
   className?: string;
   autoPlay?: boolean;
   loop?: boolean;
@@ -24,10 +24,18 @@ const VideoCommon: React.FC<VideoCommonProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    if (!src || src === "") {
+      return;
+    }
+
     if (videoRef.current) {
       videoRef.current.playbackRate = speed;
     }
-  }, [speed]);
+  }, [speed, src]);
+
+  if (!src || src === "") {
+    return <></>;
+  }
 
   return (
     <video

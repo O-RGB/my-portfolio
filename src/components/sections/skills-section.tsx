@@ -3,10 +3,12 @@ import SkillsBox from "../layout/skills-box";
 import ImageCommon from "../common/image";
 import { motion, useInView } from "framer-motion";
 import { images } from "@/config/value";
+import useVideoStore from "@/stores/video-sotre";
 
 interface SkillsSectionProps {}
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
+  const videos = useVideoStore((state) => state.videos);
   const duration = 3;
   const space = 200;
   const ref = useRef(null);
@@ -51,7 +53,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
     >
       <SkillsBox
-        bg={images.skills.frontend.videos.skillsFrontend}
+        bg={videos["skills-frontend"]} //images.skills.frontend.videos.skillsFrontend
         isVideo
         title="Frontend"
         contant={
@@ -109,7 +111,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
     >
       <SkillsBox
         title="Backend"
-        bg={images.skills.backend.videos.skillsBackendBg}
+        bg={videos["skills-backend-bg-2"]} //images.skills.backend.videos.skillsBackendBg
         isVideo
         contant={
           <div className="flex justify-between h-full ">

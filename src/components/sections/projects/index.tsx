@@ -10,10 +10,13 @@ import NextKaraoke from "./karaoke";
 import Gaysornurbanresort from "./gaysorn";
 import RfpProject from "./rfp";
 import Land4ThaiHeader from "./land-4-thai/header";
+import { images } from "@/config/value";
+import useVideoStore from "@/stores/video-sotre";
 
 interface ProjectSectionProps {}
 
 const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
+  const videos = useVideoStore((state) => state.videos);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: "some" });
   return (
@@ -27,7 +30,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
               screenContant={
                 <div className="relative w-full h-full ">
                   <VideoCommon
-                    src="/images/project/gaysorn/gaysorn-preview.mp4"
+                    src={videos["gaysorn-preview"]} //images.projects.gaysorn.videos.preview
                     autoPlay
                     loop
                   ></VideoCommon>
@@ -45,7 +48,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
               <div className="absolute top-12 left-0 right-0 flex items-center justify-center z-10 ">
                 <div className="w-[600px] h-[150px] ">
                   <ImageCommon
-                    src="/images/project/rfp/rfp-icon.png"
+                    src={images.projects.rfp.images.icon}
                     objectFit="contain"
                     containerClassName="w-full h-full"
                   ></ImageCommon>
@@ -64,7 +67,9 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
                   className="scale-90"
                 >
                   <div className="relative w-full h-full pl-3 bg-white">
-                    <ImageCommon src="/images/project/rfp/rfp-home-screen.png"></ImageCommon>
+                    <ImageCommon
+                      src={images.projects.rfp.images.homeScreen}
+                    ></ImageCommon>
                   </div>
                 </PhoneScreen>
               </motion.div>
@@ -76,7 +81,9 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
               layout="macbook"
               screenContant={
                 <div className="relative w-full h-full p-[0.5%]">
-                  <ImageCommon src="/images/project/rfp/rfp-award-screen.png"></ImageCommon>
+                  <ImageCommon
+                    src={images.projects.rfp.images.awardScreen}
+                  ></ImageCommon>
                 </div>
               }
             >

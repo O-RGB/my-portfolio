@@ -2,6 +2,7 @@ import React from "react";
 import AnimeCommon from "../common/anime/anime";
 import ImageBox from "../common/banner/image-box";
 import { images } from "@/config/value";
+import useVideoStore from "@/stores/video-sotre";
 
 interface BannerSectionProps {
   videoEnd?: boolean;
@@ -14,10 +15,11 @@ const BannerSection: React.FC<BannerSectionProps> = ({
   onVideoEnd,
   videoSrc,
 }) => {
+  const videos = useVideoStore((state) => state.videos);
   return (
     <ImageBox
       srcImage={images.banners.images.aBanner}
-      srcVideo={videoSrc ? videoSrc : ""} //images.banners.images.bBanner
+      srcVideo={videos["b-banner"]}
       onVideoEnd={() => {
         onVideoEnd?.(true);
       }}

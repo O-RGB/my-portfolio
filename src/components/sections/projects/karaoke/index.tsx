@@ -2,12 +2,15 @@ import CardBox from "@/components/common/card";
 import ImageCommon from "@/components/common/image";
 import PhoneScreen from "@/components/common/phone-screen";
 import VideoCommon from "@/components/common/video";
+import { images } from "@/config/value";
+import useVideoStore from "@/stores/video-sotre";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 
 interface NextKaraokeProps {}
 
 const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
+  const videos = useVideoStore((state) => state.videos);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: "some" });
   return (
@@ -26,7 +29,7 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
           <PhoneScreen layout={"ipad"} mode="landscape">
             <VideoCommon
               loop
-              src={"/images/project/karaoke/karaoke-ipad-screen.mp4"}
+              src={videos["karaoke-ipad-screen"]} //images.projects.karaoke.videos.ipadScreen
               className="w-full h-full p-0.5"
               autoPlay
             ></VideoCommon>
@@ -48,7 +51,7 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
             <PhoneScreen layout={"iphone"}>
               <VideoCommon
                 loop
-                src={"/images/project/karaoke/karaoke-iphone-remote.mp4"}
+                src={videos["karaoke-iphone-remote"]} //images.projects.karaoke.videos.iphoneRemote
                 className=" w-full h-full p-[1vw] md:p-2 pt-[3.5vw] md:pt-8 scale-[1.05] bg-[#64758c]"
                 autoPlay
               ></VideoCommon>

@@ -2,6 +2,7 @@ import CardBox from "@/components/common/card";
 import CardContant from "@/components/common/card/card-contant";
 import ImageCommon from "@/components/common/image";
 import PhoneScreen from "@/components/common/phone-screen";
+import { images } from "@/config/value";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 
@@ -24,7 +25,7 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
             >
               <PhoneScreen layout={"iphone"}>
                 <ImageCommon
-                  src={"/images/project/land-4-thai/land-4-thai-screen.png"}
+                  src={images.projects.land4Thai.images.screen}
                   containerClassName="w-full h-full"
                 ></ImageCommon>
               </PhoneScreen>
@@ -38,7 +39,7 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
             >
               <PhoneScreen layout={"android"}>
                 <ImageCommon
-                  src={"/images/project/land-4-thai/land-4-thai-screen.png"}
+                  src={images.projects.land4Thai.images.screen}
                   containerClassName="w-full h-full"
                 ></ImageCommon>
               </PhoneScreen>
@@ -61,7 +62,7 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                 highlight={false}
               >
                 <ImageCommon
-                  src="/images/project/gaysorn/gaysorn-icon.png"
+                  src={images.projects.gaysorn.images.icon}
                   containerClassName="w-full h-14 p-5"
                   objectFit="contain"
                 ></ImageCommon>
@@ -78,17 +79,17 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                 highlight={false}
               >
                 <ImageCommon
-                  src="/images/skills/frontend/nextjs.png"
+                  src={images.skills.frontend.images.nextjs}
                   containerClassName="w-14 h-14 hidden dark:block"
                   objectFit="contain"
                 ></ImageCommon>
                 <ImageCommon
-                  src="/images/skills/frontend/nextjs-dark.png"
+                  src={images.skills.frontend.images.nextjsDark}
                   containerClassName="w-14 h-14 block dark:hidden"
                   objectFit="contain"
                 ></ImageCommon>
                 <ImageCommon
-                  src="/images/skills/backend/php.png"
+                  src={images.skills.backend.images.php}
                   containerClassName="w-14 h-14"
                   objectFit="contain"
                 ></ImageCommon>

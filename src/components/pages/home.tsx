@@ -10,14 +10,14 @@ import useSectionStore from "@/stores/section-store";
 import SkillsSection from "../sections/skills-section";
 import ProjectSection from "../sections/projects";
 import { fetchAndCacheVideo } from "../lib/indexedDb";
+import useVideoStore from "@/stores/video-sotre";
 
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = ({}) => {
   const [hide, setHide] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
-  const [videoSrc, setVideoSrc] = useState<string>();
-
+  const loadAllVideos = useVideoStore((state) => state.loadAllVideos);
   const setSection = useSectionStore((state) => state.setSection);
 
   useEffect(() => {
@@ -64,33 +64,15 @@ const Home: React.FC<HomeProps> = ({}) => {
   }, []);
 
   useEffect(() => {
-    async function loadVideo() {
-      const url = await fetchAndCacheVideo(
-        "banner-video",
-        "/images/banner/b-banner.mp4"
-      );
-      if (url) setVideoSrc(url);
-    }
-    loadVideo();
-
-    return () => {
-      if (videoSrc) {
-        URL.revokeObjectURL(videoSrc);
-      }
-    };
+    loadAllVideos();
   }, []);
 
   return (
     <GapContant>
       <ContainerLayout>
-        {/* <AboutMeModal open={open} setOpen={setOpen}></AboutMeModal> */}
         <GapContant>
           <div id="banner" className="scroll-section">
-            <BannerSection
-              videoSrc={videoSrc}
-              videoEnd={hide}
-              onVideoEnd={setHide}
-            ></BannerSection>
+            <BannerSection videoEnd={hide} onVideoEnd={setHide}></BannerSection>
           </div>
           <div id="about" className="scroll-section">
             <AboutMeSection setReadMore={setOpen}></AboutMeSection>
