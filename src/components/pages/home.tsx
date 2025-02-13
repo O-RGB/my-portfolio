@@ -9,6 +9,7 @@ import WorkExperienceSection from "../sections/work-experience-section";
 import useSectionStore from "@/stores/section-store";
 import SkillsSection from "../sections/skills-section";
 import ProjectSection from "../sections/projects";
+import { fetchAndCacheVideo } from "../lib/indexedDb";
 
 interface HomeProps {}
 
@@ -63,22 +64,18 @@ const Home: React.FC<HomeProps> = ({}) => {
   }, []);
 
   useEffect(() => {
-    async function fetchVideo() {
-      try {
-        const response = await fetch("/images/banner/b-banner.mp4");
-        const blob = await response.blob();
-        const objectURL = URL.createObjectURL(blob);
-        setVideoSrc(objectURL);
-      } catch (error) {
-        console.error("Error fetching video:", error);
-      }
+    async function loadVideo() {
+      const url = await fetchAndCacheVideo(
+        "banner-video",
+        "/images/banner/b-banner.mp4"
+      );
+      if (url) setVideoSrc(url);
     }
-
-    fetchVideo();
+    loadVideo();
 
     return () => {
       if (videoSrc) {
-        URL.revokeObjectURL(videoSrc); // เคลียร์ memory เมื่อ component unmount
+        URL.revokeObjectURL(videoSrc);
       }
     };
   }, []);
