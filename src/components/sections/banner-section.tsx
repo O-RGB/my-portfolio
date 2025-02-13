@@ -1,20 +1,23 @@
 import React from "react";
 import AnimeCommon from "../common/anime/anime";
 import ImageBox from "../common/banner/image-box";
+import { images } from "@/config/value";
 
 interface BannerSectionProps {
   videoEnd?: boolean;
   onVideoEnd?: (is: boolean) => void;
+  videoSrc?: string;
 }
 
 const BannerSection: React.FC<BannerSectionProps> = ({
   videoEnd,
   onVideoEnd,
+  videoSrc,
 }) => {
   return (
     <ImageBox
-      srcImage="images/banner/a-banner.png"
-      srcVideo="images/banner/b-banner.webm"
+      srcImage={images.banners.images.aBanner}
+      srcVideo={videoSrc ? videoSrc : ""} //images.banners.images.bBanner
       onVideoEnd={() => {
         onVideoEnd?.(true);
       }}

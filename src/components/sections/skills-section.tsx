@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import SkillsBox from "../layout/skills-box";
 import ImageCommon from "../common/image";
 import { motion, useInView } from "framer-motion";
+import { images } from "@/config/value";
 
 interface SkillsSectionProps {}
 
@@ -24,14 +25,14 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             <div className="flex items-center justify-center gap-4 ">
               <div className="w-10 lg:h-14 h-10 lg:w-14">
                 <ImageCommon
-                  src="/images/skills/ai/claude.png"
+                  src={images.skills.ai.images.claude}
                   className="relative w-10 lg:w-14 h-10 lg:h-14"
                   objectFit={"contain"}
                 ></ImageCommon>
               </div>
               <div className="w-10 lg:h-14 h-10 lg:w-14">
                 <ImageCommon
-                  src="/images/skills/ai/chatGPT.png"
+                  src={images.skills.ai.images.chatGPT}
                   className="w-full h-full"
                   objectFit={"contain"}
                 ></ImageCommon>
@@ -50,7 +51,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
     >
       <SkillsBox
-        bg="/images/skills/frontend/skills-frontend.mp4"
+        bg={images.skills.frontend.videos.skillsFrontend}
         isVideo
         title="Frontend"
         contant={
@@ -63,7 +64,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             <div className="flex gap-4">
               <div className="flex flex-col items-center justify-center gap-1 h-14 w-9">
                 <ImageCommon
-                  src="/images/skills/frontend/dnd.png"
+                  src={images.skills.frontend.images.dnd}
                   containerClassName="w-full h-full"
                   objectFit="contain"
                 ></ImageCommon>
@@ -71,7 +72,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
               </div>
               <div className="flex flex-col items-center justify-center gap-1 h-14 w-9">
                 <ImageCommon
-                  src="/images/skills/frontend/gql.png"
+                  src={images.skills.frontend.images.gql}
                   containerClassName="w-full h-full"
                   objectFit="contain"
                 ></ImageCommon>
@@ -79,7 +80,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
               </div>
               <div className="flex flex-col items-center justify-center gap-1 h-14 w-9">
                 <ImageCommon
-                  src="/images/skills/frontend/antd.png"
+                  src={images.skills.frontend.images.antd}
                   containerClassName="w-full h-full"
                   objectFit="contain"
                 ></ImageCommon>
@@ -87,7 +88,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
               </div>
               <div className="flex flex-col items-center justify-center gap-1 h-14 w-9">
                 <ImageCommon
-                  src="/images/skills/frontend/zustand.png"
+                  src={images.skills.frontend.images.zustand}
                   containerClassName="w-full h-full"
                   objectFit="contain"
                 ></ImageCommon>
@@ -108,7 +109,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
     >
       <SkillsBox
         title="Backend"
-        bg="/images/skills/backend/skills-backend-bg-2.webm"
+        bg={images.skills.backend.videos.skillsBackendBg}
         isVideo
         contant={
           <div className="flex justify-between h-full ">
@@ -121,7 +122,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
             <div className="w-20 lg:w-32 h-20 lg:h-32 -mt-8 lg:-mt-4">
               <ImageCommon
-                src="/images/skills/backend/nestJs.png"
+                src={images.skills.backend.images.nestJs}
                 className="w-20 lg:w-32 h-20 lg:h-32"
               ></ImageCommon>
             </div>
@@ -140,7 +141,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       <SkillsBox
         title="Databse"
         contant={
-          <div className="flex justify-between  h-full ">
+          <div className="flex justify-between h-full">
             <div>
               <span className="text-3xl md:text-5xl font-bold">
                 MySQL, <br /> Sequelize
@@ -150,7 +151,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
             <div className="w-16 h-20 -mt-8 lg:-mt-4">
               <ImageCommon
-                src="/images/skills/database/sequelize.png"
+                src={images.skills.database.images.sequelize}
                 className="w-16 h-20"
                 objectFit={"contain"}
               ></ImageCommon>
@@ -168,12 +169,12 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
     >
       <SkillsBox
-        bg="/images/skills/utility/skills-tailwind.png"
+        bg={images.skills.utility.images.tailwindBG}
         contant={
           <div className="flex justify-center items-center h-full py-8 lg:py-0">
             <div className="w-full h-8">
               <ImageCommon
-                src="/images/skills/utility/tailwind.png"
+                src={images.skills.utility.images.tailwind}
                 className="w-full h-full"
                 objectFit={"contain"}
               ></ImageCommon>
@@ -192,17 +193,17 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
     >
       <SkillsBox
         contant={
-          <div className="flex justify-center items-center  h-full p-2 gap-4 lg:gap-0">
+          <div className="flex justify-center items-center h-full p-2 gap-4 lg:gap-0">
             <div className="self-start w-16 lg:w-14 h-16 lg:h-14">
               <ImageCommon
-                src="/images/skills/utility/git.png"
+                src={images.skills.utility.images.git}
                 className="w-16 lg:w-14 h-16 lg:h-14"
                 objectFit="contain"
               ></ImageCommon>
             </div>
             <div className="self-end w-16 lg:w-14 h-16 lg:h-14">
               <ImageCommon
-                src="/images/skills/utility/figma.png"
+                src={images.skills.utility.images.figma}
                 className="w-16 lg:w-14 h-16 lg:h-14"
                 objectFit="contain"
               ></ImageCommon>
@@ -220,7 +221,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
     >
       <SkillsBox
-        bg="/images/skills/utility/skills-python.png"
+        bg={images.skills.utility.images.pythonBG}
         contant={
           <div className="flex justify-between items-center h-full ">
             <div>
@@ -233,7 +234,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
             </div>
             <div className="w-24 h-24">
               <ImageCommon
-                src="/images/skills/utility/python.png"
+                src={images.skills.utility.images.python}
                 className="w-24 h-24"
                 objectFit="contain"
               ></ImageCommon>

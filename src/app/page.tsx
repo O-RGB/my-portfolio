@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Home from "../components/pages/home";
 import NavBar from "../components/layout/navbar";
 import Footer from "../components/layout/footer";
-import PreloadAssets from "@/components/tools/preload";
 
 // กำหนดค่าข้อมูลที่ใช้ซ้ำ ๆ
 const PAGE_TITLE = "Phichayoot Boonton";

@@ -8,7 +8,6 @@ import AboutMeSection from "../sections/about-me-section";
 import WorkExperienceSection from "../sections/work-experience-section";
 import useSectionStore from "@/stores/section-store";
 import SkillsSection from "../sections/skills-section";
-import PreloadAssets from "../tools/preload";
 import ProjectSection from "../sections/projects";
 
 interface HomeProps {}
@@ -16,6 +15,8 @@ interface HomeProps {}
 const Home: React.FC<HomeProps> = ({}) => {
   const [hide, setHide] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
+  const [videoSrc, setVideoSrc] = useState<string>();
+
   const setSection = useSectionStore((state) => state.setSection);
 
   useEffect(() => {
@@ -61,13 +62,38 @@ const Home: React.FC<HomeProps> = ({}) => {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  useEffect(() => {
+    async function fetchVideo() {
+      try {
+        const response = await fetch("/images/banner/b-banner.mp4");
+        const blob = await response.blob();
+        const objectURL = URL.createObjectURL(blob);
+        setVideoSrc(objectURL);
+      } catch (error) {
+        console.error("Error fetching video:", error);
+      }
+    }
+
+    fetchVideo();
+
+    return () => {
+      if (videoSrc) {
+        URL.revokeObjectURL(videoSrc); // เคลียร์ memory เมื่อ component unmount
+      }
+    };
+  }, []);
+
   return (
     <GapContant>
       <ContainerLayout>
         {/* <AboutMeModal open={open} setOpen={setOpen}></AboutMeModal> */}
         <GapContant>
           <div id="banner" className="scroll-section">
-            <BannerSection videoEnd={hide} onVideoEnd={setHide}></BannerSection>
+            <BannerSection
+              videoSrc={videoSrc}
+              videoEnd={hide}
+              onVideoEnd={setHide}
+            ></BannerSection>
           </div>
           <div id="about" className="scroll-section">
             <AboutMeSection setReadMore={setOpen}></AboutMeSection>
