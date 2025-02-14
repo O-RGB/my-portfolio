@@ -5,6 +5,7 @@ import DynamicDescription from "./description";
 import ButtonCommon from "../button";
 import { FaList } from "react-icons/fa";
 import ListMenu from "../menu/list-menu";
+import useSectionStore from "@/stores/section-store";
 
 interface DynamicIslandProps {
   onShow?: boolean;
@@ -15,6 +16,7 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
   const [hovering, setHovering] = useState<boolean>(false);
   const [allMenu, setAllMenu] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrolling = useSectionStore((state) => state.scrolling);
 
   const close = () => {
     setHideOptions(false);
@@ -57,7 +59,6 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
         setHideOptions(true);
         setHovering(false);
         setAllMenu(false);
-        // close();
       }
     };
 
@@ -66,6 +67,14 @@ const DynamicIsland: React.FC<DynamicIslandProps> = ({ onShow }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    if (scrolling) {
+      setHideOptions(true);
+      setHovering(false);
+      setAllMenu(false);
+    }
+  }, [scrolling]);
 
   useEffect(() => {
     onOptionsChange();

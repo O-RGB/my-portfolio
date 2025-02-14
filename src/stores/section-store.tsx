@@ -14,12 +14,24 @@ const SercionValues: Record<string, ISectionData> = {
 };
 
 interface SectionStore {
+  scrollPosition: number;
+  setScrollPosition?: (position: number) => void;
+  scrolling: boolean;
+  setScrolling?: (scroll: boolean) => void;
+  modalOpening: boolean;
+  setModalOpening?: (isOpen: boolean) => void;
   sectionId?: string;
   sectionName?: ISectionData;
   setSection: (sectionId: string) => void;
 }
 
 const useSectionStore = create<SectionStore>((set) => ({
+  scrollPosition: 0,
+  setScrollPosition: (scrollPosition) => set({ scrollPosition }),
+  scrolling: true,
+  setScrolling: (scrolling) => set({ scrolling }),
+  modalOpening: true,
+  setModalOpening: (modalOpening) => set({ modalOpening }),
   sectionId: undefined,
   sectionName: undefined,
   setSection: (sectionId: string) => {

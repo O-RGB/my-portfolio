@@ -5,27 +5,38 @@ import ContainerLayout from "./container";
 import MenuItem from "../common/menu";
 import DynamicIsland from "../common/dynamic-island";
 import DarkMode from "../tools/dark-mode";
+import useSectionStore from "@/stores/section-store";
 
 interface NavBarProps {}
 
 const NavBar: React.FC<NavBarProps> = ({}) => {
   const [showDynamicIsland, setShowDynamicIsland] = useState(false);
+  const modalOpening = useSectionStore((state) => state.modalOpening);
+  const scrollPosition = useSectionStore((state) => state.scrollPosition);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY >= 50) {
+  //       setShowDynamicIsland(true);
+  //     } else {
+  //       setShowDynamicIsland(false);
+  //     }
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 50) {
-        setShowDynamicIsland(true);
-      } else {
-        setShowDynamicIsland(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    if (scrollPosition >= 50 && modalOpening === false) {
+      setShowDynamicIsland(true);
+    } else {
+      setShowDynamicIsland(false);
+    }
+  }, [scrollPosition, modalOpening]);
 
   return (
     <>

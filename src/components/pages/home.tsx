@@ -1,23 +1,20 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ContainerLayout from "../layout/container";
 import GapContant from "../layout/gap-contant";
 import BannerSection from "../sections/banner-section";
-import AboutMeModal from "../modals/about-me-modal";
 import AboutMeSection from "../sections/about-me-section";
 import WorkExperienceSection from "../sections/work-experience-section";
 import useSectionStore from "@/stores/section-store";
 import SkillsSection from "../sections/skills-section";
 import ProjectSection from "../sections/projects";
-import { fetchAndCacheVideo } from "../lib/indexedDb";
-import useVideoStore from "@/stores/video-sotre";
 
 interface HomeProps {}
 
 const Home: React.FC<HomeProps> = ({}) => {
-  const [hide, setHide] = useState<boolean>(false);
-  const [open, setOpen] = useState<boolean>(false);
   const setSection = useSectionStore((state) => state.setSection);
+  const setScrolling = useSectionStore((state) => state.setScrolling);
+  const setScrollPosition = useSectionStore((state) => state.setScrollPosition);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,9 +25,7 @@ const Home: React.FC<HomeProps> = ({}) => {
           }
         });
       },
-      {
-        threshold: 0.5,
-      }
+      { threshold: 0.5 }
     );
 
     const sections = document.querySelectorAll(".scroll-section");
@@ -40,11 +35,31 @@ const Home: React.FC<HomeProps> = ({}) => {
   }, []);
 
   useEffect(() => {
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+
+    const handleScroll = () => {
+      setScrolling?.(true);
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        setScrolling?.(false);
+      }, 200);
+
+      setScrollPosition?.(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleHashChange = (e?: any) => {
-      // ป้องกันการเลื่อนแบบ default ของบราวเซอร์
       e?.preventDefault();
 
-      // หน่วงเวลาเล็กน้อยเพื่อให้แน่ใจว่าบราวเซอร์ไม่ได้เลื่อนก่อน
       setTimeout(() => {
         const hash = window.location.hash.replace("#", "");
         const section = document.getElementById(hash);
@@ -67,10 +82,10 @@ const Home: React.FC<HomeProps> = ({}) => {
       <ContainerLayout>
         <GapContant>
           <div id="banner" className="scroll-section">
-            <BannerSection videoEnd={hide} onVideoEnd={setHide}></BannerSection>
+            <BannerSection></BannerSection>
           </div>
           <div id="about" className="scroll-section">
-            <AboutMeSection setReadMore={setOpen}></AboutMeSection>
+            <AboutMeSection></AboutMeSection>
           </div>
         </GapContant>
       </ContainerLayout>

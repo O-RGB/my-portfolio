@@ -6,11 +6,9 @@ import CardContant from "../common/card/card-contant";
 import AboutMeModal from "../modals/about-me-modal";
 import { images } from "@/config/value";
 
-interface AboutMeSectionProps {
-  setReadMore?: (open: boolean) => void;
-}
+interface AboutMeSectionProps {}
 
-const AboutMeSection: React.FC<AboutMeSectionProps> = ({ setReadMore }) => {
+const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-contant">

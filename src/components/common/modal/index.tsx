@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import useSectionStore from "@/stores/section-store";
 
 interface ModalCommonProps {
   isOpen: boolean;
@@ -18,6 +19,7 @@ const ModalCommon: React.FC<ModalCommonProps> = ({
   children,
 }) => {
   const [isBrowser, setIsBrowser] = useState(false);
+  const setModalOpening = useSectionStore((state) => state.setModalOpening);
 
   useEffect(() => {
     setIsBrowser(true);
@@ -26,12 +28,15 @@ const ModalCommon: React.FC<ModalCommonProps> = ({
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      setModalOpening?.(true);
     } else {
       document.body.style.overflow = "auto";
+      setModalOpening?.(false);
     }
 
     return () => {
       document.body.style.overflow = "auto";
+      setModalOpening?.(false);
     };
   }, [isOpen]);
 
