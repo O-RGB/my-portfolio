@@ -48,7 +48,7 @@ const useVideoStore = create<VideoStore>((set, get) => ({
 
       set({ progress: Math.round((loadedCount / totalVideos) * 100) });
 
-      await new Promise<boolean>((r) => setTimeout(() => r(true), 10));
+      await new Promise<boolean>((r) => setTimeout(() => r(true), 100));
     }
   },
 }));
