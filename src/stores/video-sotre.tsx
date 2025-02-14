@@ -20,12 +20,14 @@ const videoPaths: Record<VideoTypes, string> = {
 
 interface VideoStore {
   videos: Partial<Record<VideoTypes, string>>;
+  progress: number;
   getVideo: (key: VideoTypes) => Promise<void>;
   loadAllVideos: () => Promise<void>;
 }
 
 const useVideoStore = create<VideoStore>((set, get) => ({
   videos: {},
+  progress: 0,
 
   getVideo: async (key: VideoTypes) => {
     const url = await fetchAndCacheVideo(key, videoPaths[key]);
@@ -37,13 +39,16 @@ const useVideoStore = create<VideoStore>((set, get) => ({
   },
 
   loadAllVideos: async () => {
+    const totalVideos = Object.keys(videoPaths).length;
+    let loadedCount = 0;
+
     for (const key of Object.keys(videoPaths) as VideoTypes[]) {
       await get().getVideo(key);
-      await new Promise<boolean>((r) =>
-        setTimeout(() => {
-          r(false);
-        }, 10)
-      );
+      loadedCount++;
+
+      set({ progress: Math.round((loadedCount / totalVideos) * 100) });
+
+      await new Promise<boolean>((r) => setTimeout(() => r(true), 10));
     }
   },
 }));

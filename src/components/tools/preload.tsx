@@ -1,4 +1,5 @@
 "use client";
+import useVideoStore from "@/stores/video-sotre";
 import { useEffect, useState, ReactNode } from "react";
 
 const fileList: FileList = {
@@ -59,74 +60,14 @@ interface FileList {
 }
 
 export default function PreloadAssets({ children }: PreloadAssetsProps) {
-  const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const loadAllVideos = useVideoStore((state) => state.loadAllVideos);
+  const progress = useVideoStore((state) => state.progress);
 
   useEffect(() => {
-    async function loadFiles() {
-      try {
-        const totalFiles = fileList.images.length + fileList.videos.length;
-        let loadedFiles = 0;
-
-        const updateProgress = () => {
-          loadedFiles++;
-          setProgress((loadedFiles / totalFiles) * 100);
-        };
-
-        // Load images
-        const imagePromises = fileList.images.map((image) => {
-          return new Promise((resolve) => {
-            const img = new Image();
-            img.src = image;
-            img.onload = () => {
-              updateProgress();
-              resolve(img);
-            };
-            img.onerror = () => {
-              updateProgress();
-              resolve(null);
-            };
-          });
-        });
-
-        // Load videos with Safari compatibility
-        const videoPromises = fileList.videos.map((video) => {
-          return new Promise((resolve) => {
-            const vid = document.createElement("video");
-            vid.muted = true;
-            vid.playsInline = true;
-
-            const handleLoad = () => {
-              updateProgress();
-              resolve(vid);
-            };
-
-            const handleError = () => {
-              updateProgress();
-              resolve(null);
-            };
-
-            vid.addEventListener("loadedmetadata", handleLoad, { once: true });
-            vid.addEventListener("error", handleError, { once: true });
-
-            vid.src = video;
-            vid.load();
-          });
-        });
-
-        // Load images first, then videos
-        await Promise.all([...imagePromises, ...videoPromises]);
-      } catch (error) {
-        console.error("Error loading assets:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadFiles();
+    loadAllVideos();
   }, []);
 
-  if (loading) {
+  if (progress < 100) {
     return (
       <div className="fixed inset-0 flex flex-col items-center justify-center bg-white">
         <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">

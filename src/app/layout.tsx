@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme";
 import "./globals.css";
+import PreloadAssets from "@/components/tools/preload";
 
 export const metadata: Metadata = {
   title: "Phichayoot Boonton",
@@ -21,7 +22,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <>{children}</>
+          <PreloadAssets>{children}</PreloadAssets>
         </ThemeProvider>
       </body>
     </html>

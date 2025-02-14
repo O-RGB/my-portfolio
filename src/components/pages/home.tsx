@@ -17,7 +17,6 @@ interface HomeProps {}
 const Home: React.FC<HomeProps> = ({}) => {
   const [hide, setHide] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
-  const loadAllVideos = useVideoStore((state) => state.loadAllVideos);
   const setSection = useSectionStore((state) => state.setSection);
 
   useEffect(() => {
@@ -61,10 +60,6 @@ const Home: React.FC<HomeProps> = ({}) => {
 
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
-
-  useEffect(() => {
-    loadAllVideos();
   }, []);
 
   return (
