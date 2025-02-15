@@ -2,28 +2,15 @@ import React from "react";
 import ImageBox from "../common/banner/image-box";
 import HeaderTitle from "../common/contant/header-title";
 import Quotes from "../common/contant/quotes";
-import ModalCommon from "../common/modal";
 
-interface AboutMeModalProps {
-  open?: boolean;
-  setOpen?: (open: boolean) => void;
-}
+interface AboutMeModalProps {}
 
-const AboutMeModal: React.FC<AboutMeModalProps> = ({
-  open = false,
-  setOpen,
-}) => {
+const AboutMeModal: React.FC<AboutMeModalProps> = ({}) => {
   return (
     <>
-      {/* <ModalCommon
-        isOpen={open}
-        onClose={() => {
-          setOpen?.(false);
-        }}
-      > */}
       <div className="break-words flex flex-col gap-4">
         <HeaderTitle
-          className="pb-4"
+          className="pb-8"
           title="About Me"
           detail={`สวัสดีครับ ผม "ส้มโอ"`}
         ></HeaderTitle>
@@ -56,7 +43,6 @@ const AboutMeModal: React.FC<AboutMeModalProps> = ({
           </span>
         </div>
       </div>
-      {/* </ModalCommon> */}
     </>
   );
 };

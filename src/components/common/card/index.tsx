@@ -13,7 +13,7 @@ interface CardBoxProps {
 const CardBox: React.FC<CardBoxProps> = ({
   children,
   className,
-  moreDetail,
+  moreDetail = false,
   highlight = true,
   onClick,
 }) => {

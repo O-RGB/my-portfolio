@@ -1,33 +1,61 @@
 import AnimatedCard from "@/components/common/anime/anime-card";
 import CardBox from "@/components/common/card";
 import CardContant from "@/components/common/card/card-contant";
+import HeaderTitle from "@/components/common/contant/header-title";
+import Quotes from "@/components/common/contant/quotes";
 import ImageCommon from "@/components/common/image";
 import PhoneScreen from "@/components/common/phone-screen";
 import { images } from "@/config/value";
-import { motion, useInView } from "framer-motion";
-import React, { useRef } from "react";
+import React from "react";
 
 interface Land4ThaiScreenProps {}
 
 const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
-  // const ref = useRef(null);
-  // const isInView = useInView(ref, { amount: "some" });
+  const title = "Land4Thai Appilcation";
+  const titleBottom = "แอปค้นหาที่ดินทำกินสำหรับชุมชน";
+
+  const first =
+    "ครั้งแรกที่เริ่มทำ Appilcation มือถือ โดยใช้ React Native (Expo) การพัฒนาเต็มไปด้วยความยากลำบากเพราะเป็นครั้งแรกทั้งหมดเลย และเลือกใช้ Expo เป็นตัวช่วย Deploy เพราะมีตัวช่วยมากมายและมี Libary ที่ช่วยสำหรับมือใหม่อย่างผมได้ดี";
+
+  const appTitle = "Appilcation";
+  const appDetail =
+    "แอปพลิเคชันนี้ถูกพัฒนาขึ้นมาเพื่อช่วยให้ชุมชนสามารถค้นหาที่ดินที่สามารถนำมาใช้ทำการเกษตรหรือกิจกรรมอื่นๆ ได้อย่างสะดวกและรวดเร็ว โดยเป็นแอปที่ออกแบบมาเพื่อเป็นเครื่องมือในการช่วยเกษตรกรหรือผู้ที่ต้องการพื้นที่ทำการเกษตรในพื้นที่ต่างๆ สามารถเข้าถึงข้อมูลที่ดินได้จากแอปพลิเคชัน";
+
+  const contantModal = (
+    <>
+      {first}
+      <div className="br"></div>
+      <div>
+        <Quotes
+          isPerson={false}
+          title={appTitle}
+          reference={appDetail}
+        ></Quotes>
+        <div className="br"></div>
+      </div>
+    </>
+  );
+  const contant = (
+    <>
+      {first}
+      <div className="br"></div>
+      <div>
+        <div>
+          <span className="font-bold">{appTitle} </span>
+          {appDetail}
+        </div>
+      </div>
+    </>
+  );
+
   return (
     <>
       <div className="grid md:grid-cols-2 gap-contant card-limit-height">
         <CardBox className="!p-0 h-full aspect-square md:aspect-auto flex items-center justify-center">
           <div className="flex w-full h-fit z-10 p-10">
-            {/* <motion.div
-              ref={ref}
-              initial={{ y: 100, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : undefined}
-              transition={{ ease: "easeInOut", duration: 2 }}
-              className="flex w-full h-fit pt-[5vw] xl:pt-[50px] -mx-[15vw] md:-m-[8vw] xl:-m-[100px]"
-            > */}
             <AnimatedCard
               className="flex w-full h-fit pt-[5vw] xl:pt-[50px] -mx-[15vw] md:-m-[8vw] xl:-m-[100px]"
               start={{ y: 100 }}
-              // transition={{ ease: "easeInOut", duration: 2 }}
             >
               <PhoneScreen layout={"iphone"}>
                 <ImageCommon
@@ -36,14 +64,7 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                 ></ImageCommon>
               </PhoneScreen>
             </AnimatedCard>
-            {/* </motion.div> */}
-            {/* <motion.div
-              ref={ref}
-              initial={{ y: -100, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : undefined}
-              // transition={{ ease: "easeInOut", duration: 2 }}
-              className="flex w-full h-fit pb-[5vw] xl:pb-[50px] -mx-[15vw] md:-m-[8vw] xl:-m-[100px]"
-            > */}
+
             <AnimatedCard
               className="flex w-full h-fit pb-[5vw] xl:pb-[50px] -mx-[15vw] md:-m-[8vw] xl:-m-[100px]"
               start={{ y: -100 }}
@@ -55,17 +76,10 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                 ></ImageCommon>
               </PhoneScreen>
             </AnimatedCard>
-            {/* </motion.div> */}
           </div>
         </CardBox>
         <div className="flex flex-col gap-contant">
           <div className="relative grid grid-cols-3 gap-contant h-20 ">
-            {/* <motion.div
-              className="w-full h-full col-span-2"
-              initial={{ x: 100, opacity: 0 }}
-              animate={isInView ? { x: 0, opacity: 1 } : undefined}
-              transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.1 }}
-            > */}
             <AnimatedCard
               delay={0.1}
               className="w-full h-full col-span-2"
@@ -82,13 +96,7 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                 ></ImageCommon>
               </CardBox>
             </AnimatedCard>
-            {/* </motion.div> */}
-            {/* <motion.div
-              className="w-full h-full col-span-1"
-              initial={{ x: 100, opacity: 0 }}
-              animate={isInView ? { x: 0, opacity: 1 } : undefined}
-              transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.2 }}
-            > */}
+
             <AnimatedCard
               delay={0.2}
               className="w-full h-full col-span-1"
@@ -115,64 +123,26 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                 ></ImageCommon>
               </CardBox>
             </AnimatedCard>
-            {/* </motion.div> */}
           </div>
-          {/* <motion.div
-            className="w-full h-full col-span-2"
-            initial={{ x: 100, opacity: 0 }}
-            animate={isInView ? { x: 0, opacity: 1 } : undefined}
-            transition={{ ease: [0.4, 0, 0.2, 1], duration: 2 }}
-          > */}
           <AnimatedCard className="w-full h-full col-span-2" start={{ x: 100 }}>
             <CardBox className="h-full" highlight={false}>
               <CardContant
-                tags={["test", "2020"]}
-                moreDetail={<>test</>}
-                title={<>Lorem ipsum dolor sit amet</>}
-                description={
+                tags={["React Native"]}
+                moreDetail={
                   <>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Delectus qui corrupti aliquid, quae illo blanditiis, natus,
-                    maxime vero fugit reiciendis mollitia perspiciatis
-                    laboriosam. Suscipit, quis quasi! Quasi ex deserunt
-                    repellat. lines Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Ipsum quisquam impedit sequi? Dolorum
-                    deleniti aliquam exercitationem ullam vitae
-                    <br />
-                    <br />
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Delectus qui corrupti aliquid, quae illo blanditiis, natus,
-                    maxime vero fugit reiciendis mollitia perspiciatis
-                    laboriosam. Suscipit, quis quasi! Quasi ex deserunt
-                    repellat. lines Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Ipsum quisquam impedit sequi? Dolorum
-                    deleniti aliquam exercitationem ullam vitae
-                    <br />
-                    <br />
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Delectus qui corrupti aliquid, quae illo blanditiis, natus,
-                    maxime vero fugit reiciendis mollitia perspiciatis
-                    laboriosam. Suscipit, quis quasi! Quasi ex deserunt
-                    repellat. lines Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Ipsum quisquam impedit sequi? Dolorum
-                    deleniti aliquam exercitationem ullam vitae
-                    <br />
-                    <br />
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Delectus qui corrupti aliquid, quae illo blanditiis, natus,
-                    maxime vero fugit reiciendis mollitia perspiciatis
-                    laboriosam. Suscipit, quis quasi! Quasi ex deserunt
-                    repellat. lines Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Ipsum quisquam impedit sequi? Dolorum
-                    deleniti aliquam exercitationem ullam vitae
-                    <br />
-                    <br />
+                    <HeaderTitle
+                      className="pb-8"
+                      title={title}
+                      detail={titleBottom}
+                    ></HeaderTitle>
+                    {contantModal}
                   </>
                 }
+                title={`${title} ${titleBottom}`}
+                description={contant}
               ></CardContant>
             </CardBox>
           </AnimatedCard>
-          {/* </motion.div> */}
         </div>
       </div>
     </>

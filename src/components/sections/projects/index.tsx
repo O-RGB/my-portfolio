@@ -1,10 +1,9 @@
-import React, { useRef } from "react";
+import React from "react";
 import ProjectBox from "../../layout/project-box";
 import VideoCommon from "../../common/video";
 import ImageCommon from "@/components/common/image";
 import CardBox from "@/components/common/card";
 import PhoneScreen from "@/components/common/phone-screen";
-import { motion, useInView } from "framer-motion";
 import Land4ThaiScreen from "./land-4-thai";
 import NextKaraoke from "./karaoke";
 import Gaysornurbanresort from "./gaysorn";
@@ -18,8 +17,6 @@ interface ProjectSectionProps {}
 
 const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
   const videos = useVideoStore((state) => state.videos);
-  // const ref = useRef(null);
-  // const isInView = useInView(ref, { amount: "some" });
   return (
     <>
       <div className="flex flex-col gap-contant">
@@ -31,7 +28,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
               screenContant={
                 <div className="relative w-full h-full ">
                   <VideoCommon
-                    src={videos["gaysorn-preview"]} //images.projects.gaysorn.videos.preview
+                    src={videos["gaysorn-preview"]}
                     autoPlay
                     loop
                   ></VideoCommon>
@@ -55,13 +52,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
                   ></ImageCommon>
                 </div>
               </div>
-              {/* <motion.div
-                className="relative z-20"
-                ref={ref}
-                initial={{ y: 200, scale: 1.5 }}
-                animate={isInView ? { y: 0, scale: 1 } : undefined}
-                transition={{ ease: "anticipate", duration: 3 }}
-              > */}
+
               <AnimatedCard
                 className="relative z-20"
                 initial={{ y: 200, scale: 1.5 }}

@@ -1,32 +1,21 @@
 import AnimatedCard from "@/components/common/anime/anime-card";
 import CardBox from "@/components/common/card";
-import ImageCommon from "@/components/common/image";
+import CardContant from "@/components/common/card/card-contant";
 import PhoneScreen from "@/components/common/phone-screen";
 import VideoCommon from "@/components/common/video";
-import { images } from "@/config/value";
 import useVideoStore from "@/stores/video-sotre";
-import { motion, useInView } from "framer-motion";
-import React, { useRef } from "react";
+import React from "react";
 
 interface NextKaraokeProps {}
 
 const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
   const videos = useVideoStore((state) => state.videos);
-  // const ref = useRef(null);
-  // const isInView = useInView(ref, { amount: "some" });
   return (
-    <>
+    <div className="grid grid-cols-1 gap-contant">
       <CardBox
         className="card-limit-height relative flex items-center justify-center"
         highlight={false}
       >
-        {/* <motion.div
-          ref={ref}
-          initial={{ x: -100, opacity: 0 }}
-          animate={isInView ? { x: 0, opacity: 1 } : undefined}
-          transition={{ ease: "easeInOut", duration: 2 }}
-          className="w-[65vw] md:w-[40vw] xl:w-[550px] h-fit"
-        > */}
         <AnimatedCard
           start={{ x: -100 }}
           className="w-[65vw] md:w-[40vw] xl:w-[550px] h-fit"
@@ -35,13 +24,13 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
           <PhoneScreen layout={"ipad"} mode="landscape">
             <VideoCommon
               loop
-              src={videos["karaoke-ipad-screen"]} //images.projects.karaoke.videos.ipadScreen
+              src={videos["karaoke-ipad-screen"]}
               className="w-full h-full p-0.5"
               autoPlay
             ></VideoCommon>
           </PhoneScreen>
         </AnimatedCard>
-        {/* </motion.div> */}
+
         <div
           className={`absolute 
             w-[40vw]      md:w-[28vw]     xl:w-[350px] 
@@ -49,26 +38,76 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
             -right-[2vw]  md:right-[15vw] xl:right-48  
             z-20  h-fit`}
         >
-          {/* <motion.div
-            ref={ref}
-            initial={{ x: 100, opacity: 0 }}
-            animate={isInView ? { x: 0, opacity: 1 } : undefined}
-            transition={{ ease: "easeInOut", duration: 2 }}
-          > */}
           <AnimatedCard start={{ x: 100 }}>
             <PhoneScreen layout={"iphone"}>
               <VideoCommon
                 loop
-                src={videos["karaoke-iphone-remote"]} //images.projects.karaoke.videos.iphoneRemote
+                src={videos["karaoke-iphone-remote"]}
                 className=" w-full h-full p-[1vw] md:p-2 pt-[3.5vw] md:pt-8 scale-[1.05] bg-[#64758c]"
                 autoPlay
               ></VideoCommon>
             </PhoneScreen>
           </AnimatedCard>
-          {/* </motion.div> */}
         </div>
       </CardBox>
-    </>
+      <CardBox highlight={false} className="card-limit-height">
+        <CardContant
+          title="Next Karaoke Midi + Soundfont"
+          description={
+            <div className="">
+              <div>
+                Next Karaoke เป็นเว็บแอปพลิเคชันคาราโอเกะที่ใช้เทคโนโลยี MIDI
+                และ Soundfont พร้อมด้วยระบบจัดการสถานะที่มีประสิทธิภาพ และรองรับ
+                การควบคุมระยะไกล เพื่อเพิ่มความสะดวกในการใช้งาน
+              </div>
+              <div className="br" />
+              <div className="font-bold">เทคโนโลยีที่ใช้</div>
+              <div className="br" />
+              <div>
+                <div>
+                  <span className="font-bold">SpessaSynth </span>
+                  ไลบรารีที่ใช้สำหรับเล่น MIDI และ Soundfont บนเว็บ
+                  รองรับการประมวลผลเสียงในตัว
+                  ทำให้ไม่ต้องใช้ซอฟต์แวร์ภายนอกช่วยเล่นไฟล์เสียง
+                  โดยพึ่งเริ่มต้นการพัฒนาได้ไม่นาน เป็น Libary
+                  ที่ยังต้องปรับปรุ่งเรื่องประสิทธิภาพหลาย ๆ ส่วน แต่ใน Next
+                  Karaoke มีการเพิ่ม Libary สำรองไว้ Js-synthesizer
+                  สามารถใช้งานได้โดยใช้ทรัพยากรณ์น้อยกว่าและมีประสิทธ์ภาพสูงกว่า
+                  แต่น่าเสียดายที่มี Fetures น้อยกว่า
+                  แต่ก็เป็นทางเลือกที่ดีสำหรับผู้ใช้มือถือสเปคต่ำก็สามารถใช้งานได้โดยไม่กระตุก
+                </div>
+
+                <div>
+                  <span className="font-bold">Zustand </span> ไลบรารีสำหรับ
+                  จัดการสถานะของแอป (State Management) ที่มีขนาดเล็กแต่ทรงพลัง
+                  ใช้เพื่อจัดเก็บสถานะต่าง ๆ เช่น เพลงที่กำลังเล่น เวลา
+                  และการตั้งค่าต่าง ๆ เนื่องจากว่า Next Karaoke
+                  มีการทำงานคล้ายกับ Desktop Application
+                  ดังนั้นจะมีเพียงหน้าจอเดียว (Single-Screen Application)
+                  และต้องมีการจัดการ State ที่ดีด้วย
+                </div>
+                <div>
+                  <span className="font-bold">PeerJS </span>
+                  ไลบรารีที่ใช้ WebRTC สำหรับสร้างการเชื่อมต่อแบบ Peer-to-Peer
+                  ใช้สำหรับ การควบคุมระยะไกล
+                  ทำให้สามารถเชื่อมต่อและสั่งงานจากอุปกรณ์อื่น เช่น
+                  เปลี่ยนเพลงหรือควบคุมการเล่นผ่านมือถือหรือแท็บเล็ต
+                </div>
+              </div>
+              <div className="br" />
+              <div className="font-bold">ความท้าทาย</div>
+              <div className="br" />
+              {/* <div>
+                <span>
+                  <span className="font-bold">การออกแบบ</span>
+                </span>
+              </div> */}
+            </div>
+          }
+          tags={["Midi", "Soundfont", "Next.js", "Zustand", "PeerJs"]}
+        ></CardContant>
+      </CardBox>
+    </div>
   );
 };
 

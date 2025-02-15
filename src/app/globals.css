@@ -83,6 +83,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.br {
+  height: 12px;
+}
+
 .card-limit-height {
   @apply h-auto md:h-[500px] lg:h-[600px];
 }
