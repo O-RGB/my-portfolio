@@ -1,3 +1,4 @@
+import AnimatedCard from "@/components/common/anime/anime-card";
 import CardBox from "@/components/common/card";
 import CardContant from "@/components/common/card/card-contant";
 import ImageCommon from "@/components/common/image";
@@ -9,16 +10,21 @@ interface RfpProjectProps {}
 
 const RfpProject: React.FC<RfpProjectProps> = ({}) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: "some" });
+  const isInView = useInView(ref, { amount: "some" });
 
   return (
     <>
       <div ref={ref} className="relative grid grid-cols-3 gap-contant h-20 ">
-        <motion.div
+        {/* <motion.div
           className="w-full h-full col-span-2"
           initial={{ x: 100, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : undefined}
           transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.1 }}
+        > */}
+        <AnimatedCard
+          delay={0.1}
+          className="w-full h-full col-span-2"
+          start={{ x: 100 }}
         >
           <CardBox
             className="relative duration-300 !p-0 w-full h-full flex items-center justify-center"
@@ -30,12 +36,18 @@ const RfpProject: React.FC<RfpProjectProps> = ({}) => {
               objectFit="contain"
             ></ImageCommon>
           </CardBox>
-        </motion.div>
-        <motion.div
+        </AnimatedCard>
+        {/* </motion.div> */}
+        {/* <motion.div
           className="w-full h-full col-span-1"
           initial={{ x: 100, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : undefined}
           transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.2 }}
+        > */}
+        <AnimatedCard
+          delay={0.2}
+          className="w-full h-full col-span-1"
+          start={{ x: 100 }}
         >
           <CardBox
             className="relative w-full h-full !p-4 flex items-center justify-center gap-2"
@@ -57,14 +69,16 @@ const RfpProject: React.FC<RfpProjectProps> = ({}) => {
               objectFit="contain"
             ></ImageCommon>
           </CardBox>
-        </motion.div>
+        </AnimatedCard>
+        {/* </motion.div> */}
       </div>
-      <motion.div
+      {/* <motion.div
         className="w-full h-full col-span-2"
         initial={{ x: 100, opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : undefined}
         transition={{ ease: [0.4, 0, 0.2, 1], duration: 2 }}
-      >
+      > */}
+      <AnimatedCard className="w-full h-full col-span-2" start={{ x: 100 }}>
         <CardBox
           moreDetail
           className="h-full flex flex-col gap-4"
@@ -116,7 +130,8 @@ const RfpProject: React.FC<RfpProjectProps> = ({}) => {
             }
           ></CardContant>
         </CardBox>
-      </motion.div>
+      </AnimatedCard>
+      {/* </motion.div> */}
     </>
   );
 };

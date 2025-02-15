@@ -3,6 +3,7 @@ import CardBox from "../common/card";
 import PhoneScreen from "../common/phone-screen";
 import { ApplePosition, AppleSereenType } from "@/types/general.type";
 import { motion, useInView } from "framer-motion";
+import AnimatedCard from "../common/anime/anime-card";
 
 interface ProjectBoxProps {
   children?: React.ReactNode;
@@ -23,8 +24,8 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
   className,
   phoneClassName,
 }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: "some" });
+  // const ref = useRef(null);
+  // const isInView = useInView(ref, { amount: "some" });
 
   return (
     <div
@@ -32,7 +33,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
         children ? "grid grid-cols-1 md:grid-cols-2 gap-contant" : ""
       } ${className} card-limit-height`}
     >
-      <motion.div
+      {/* <motion.div
         className={`${
           children
             ? reverse
@@ -44,6 +45,18 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
         initial={{ x: reverse ? 100 : -100, opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : undefined}
         transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.1 }}
+      > */}
+      <AnimatedCard
+        delay={0.1}
+        start={{ x: reverse ? 100 : -100 }}
+        className={`${
+          children
+            ? reverse
+              ? "order-first md:order-last"
+              : "order-first"
+            : ""
+        }`}
+         
       >
         <CardBox className="h-full flex items-center justify-center">
           <div className="w-full">
@@ -52,7 +65,8 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
             </PhoneScreen>
           </div>
         </CardBox>
-      </motion.div>
+      </AnimatedCard>
+      {/* </motion.div> */}
 
       {children && (
         <div

@@ -12,13 +12,14 @@ import RfpProject from "./rfp";
 import Land4ThaiHeader from "./land-4-thai/header";
 import { images } from "@/config/value";
 import useVideoStore from "@/stores/video-sotre";
+import AnimatedCard from "@/components/common/anime/anime-card";
 
 interface ProjectSectionProps {}
 
 const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
   const videos = useVideoStore((state) => state.videos);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: "some" });
+  // const ref = useRef(null);
+  // const isInView = useInView(ref, { amount: "some" });
   return (
     <>
       <div className="flex flex-col gap-contant">
@@ -54,11 +55,17 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
                   ></ImageCommon>
                 </div>
               </div>
-              <motion.div
+              {/* <motion.div
                 className="relative z-20"
                 ref={ref}
                 initial={{ y: 200, scale: 1.5 }}
                 animate={isInView ? { y: 0, scale: 1 } : undefined}
+                transition={{ ease: "anticipate", duration: 3 }}
+              > */}
+              <AnimatedCard
+                className="relative z-20"
+                initial={{ y: 200, scale: 1.5 }}
+                animate={{ y: 0, scale: 1 }}
                 transition={{ ease: "anticipate", duration: 3 }}
               >
                 <PhoneScreen
@@ -72,7 +79,8 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
                     ></ImageCommon>
                   </div>
                 </PhoneScreen>
-              </motion.div>
+              </AnimatedCard>
+              {/* </motion.div> */}
             </CardBox>
           </div>
           <div>

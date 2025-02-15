@@ -4,6 +4,7 @@ import ImageCommon from "../common/image";
 import { motion, useInView } from "framer-motion";
 import { images } from "@/config/value";
 import useVideoStore from "@/stores/video-sotre";
+import AnimatedCard from "../common/anime/anime-card";
 
 interface SkillsSectionProps {}
 
@@ -11,14 +12,19 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
   const videos = useVideoStore((state) => state.videos);
   const duration = 3;
   const space = 200;
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: "some" });
+  // const ref = useRef(null);
+  // const isInView = useInView(ref, { amount: "some" });
   const Ai = (
-    <motion.div
+    // <motion.div
+    //   className="w-full h-full"
+    //   initial={{ x: -space, opacity: 0 }}
+    //   animate={isInView ? { x: 0, opacity: 1 } : undefined}
+    //   transition={{ ease: [0.4, 0, 0.2, 1], duration }}
+    // >
+    <AnimatedCard
       className="w-full h-full"
-      initial={{ x: -space, opacity: 0 }}
-      animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: [0.4, 0, 0.2, 1], duration }}
+      start={{ x: -space }}
+      duration={duration}
     >
       <SkillsBox
         title="เรียนรู้การใช้ AI Chart"
@@ -43,14 +49,21 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
           </div>
         }
       ></SkillsBox>
-    </motion.div>
+    </AnimatedCard>
+    // </motion.div>
   );
   const Frontend = (
-    <motion.div
+    // <motion.div
+    //   className="w-full h-full"
+    //   initial={{ x: -space, opacity: 0 }}
+    //   animate={isInView ? { x: 0, opacity: 1 } : undefined}
+    //   transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
+    // >
+    <AnimatedCard
       className="w-full h-full"
-      initial={{ x: -space, opacity: 0 }}
-      animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
+      start={{ x: -space }}
+      duration={duration}
+      delay={0.3}
     >
       <SkillsBox
         bg={videos["skills-frontend"]} //images.skills.frontend.videos.skillsFrontend
@@ -100,14 +113,20 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
           </div>
         }
       ></SkillsBox>
-    </motion.div>
+    </AnimatedCard>
+    // </motion.div>
   );
   const Backend = (
-    <motion.div
+    // <motion.div
+    //   className="w-full h-full"
+    //   initial={{ x: space, opacity: 0 }}
+    //   animate={isInView ? { x: 0, opacity: 1 } : undefined}
+    //   transition={{ ease: [0.4, 0, 0.2, 1], duration }}
+    // >
+    <AnimatedCard
       className="w-full h-full"
-      initial={{ x: space, opacity: 0 }}
-      animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: [0.4, 0, 0.2, 1], duration }}
+      start={{ x: space }}
+      duration={duration}
     >
       <SkillsBox
         title="Backend"
@@ -131,14 +150,22 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
           </div>
         }
       ></SkillsBox>
-    </motion.div>
+    </AnimatedCard>
+    // </motion.div>
   );
   const Databse = (
-    <motion.div
+    // <motion.div
+    //   className="w-full h-full"
+    //   initial={{ opacity: 0, scale: 0.7 }}
+    //   animate={isInView ? { opacity: 1, scale: 1 } : undefined}
+    //   transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
+    // >
+    <AnimatedCard
+      delay={0.3}
+      duration={duration}
       className="w-full h-full"
       initial={{ opacity: 0, scale: 0.7 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : undefined}
-      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
+      animate={{ opacity: 1, scale: 1 }}
     >
       <SkillsBox
         title="Databse"
@@ -161,14 +188,21 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
           </div>
         }
       ></SkillsBox>
-    </motion.div>
+    </AnimatedCard>
+    // </motion.div>
   );
   const StyleSheets = (
-    <motion.div
+    // <motion.div
+    //   className="w-full h-full"
+    //   initial={{ x: space, opacity: 0 }}
+    //   animate={isInView ? { x: 0, opacity: 1 } : undefined}
+    //   transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
+    // >
+    <AnimatedCard
+      duration={duration}
+      delay={0.3}
       className="w-full h-full"
-      initial={{ x: space, opacity: 0 }}
-      animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.3 }}
+      start={{ x: space }}
     >
       <SkillsBox
         bg={images.skills.utility.images.tailwindBG}
@@ -184,14 +218,21 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
           </div>
         }
       ></SkillsBox>
-    </motion.div>
+    </AnimatedCard>
+    // </motion.div>
   );
   const Utility = (
-    <motion.div
+    // <motion.div
+    //   className="w-full h-full"
+    //   initial={{ x: -space, opacity: 0 }}
+    //   animate={isInView ? { x: 0, opacity: 1 } : undefined}
+    //   transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
+    // >
+    <AnimatedCard
       className="w-full h-full"
-      initial={{ x: -space, opacity: 0 }}
-      animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
+      start={{ x: -space }}
+      duration={duration}
+      delay={0.5}
     >
       <SkillsBox
         contant={
@@ -213,14 +254,21 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
           </div>
         }
       ></SkillsBox>
-    </motion.div>
+    </AnimatedCard>
+    // </motion.div>
   );
   const Python = (
-    <motion.div
+    // <motion.div
+    //   className="w-full h-full"
+    //   initial={{ y: space, opacity: 0 }}
+    //   animate={isInView ? { y: 0, opacity: 1 } : undefined}
+    //   transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
+    // >
+    <AnimatedCard
       className="w-full h-full"
-      initial={{ y: space, opacity: 0 }}
-      animate={isInView ? { y: 0, opacity: 1 } : undefined}
-      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
+      start={{ x: space }}
+      duration={duration}
+      delay={0.5}
     >
       <SkillsBox
         bg={images.skills.utility.images.pythonBG}
@@ -244,14 +292,21 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
           </div>
         }
       ></SkillsBox>
-    </motion.div>
+    </AnimatedCard>
+    // </motion.div>
   );
   const PHP = (
-    <motion.div
+    // <motion.div
+    //   className="w-full h-full"
+    //   initial={{ x: space, opacity: 0 }}
+    //   animate={isInView ? { x: 0, opacity: 1 } : undefined}
+    //   transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
+    // >
+    <AnimatedCard
       className="w-full h-full"
-      initial={{ x: space, opacity: 0 }}
-      animate={isInView ? { x: 0, opacity: 1 } : undefined}
-      transition={{ ease: [0.4, 0, 0.2, 1], duration, delay: 0.5 }}
+      start={{ x: space }}
+      duration={duration}
+      delay={0.5}
     >
       <SkillsBox
         contant={
@@ -264,12 +319,13 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
           </div>
         }
       ></SkillsBox>
-    </motion.div>
+    </AnimatedCard>
+    // </motion.div>
   );
 
   return (
     <>
-      <div ref={ref} className="flex flex-col gap-contant relative h-fit">
+      <div className="flex flex-col gap-contant relative h-fit">
         <span className="text-clamp-lg font-bold">Skills</span>
         <div className="hidden lg:block">
           <div className="flex flex-col gap-contant">

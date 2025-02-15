@@ -1,3 +1,4 @@
+import AnimatedCard from "@/components/common/anime/anime-card";
 import CardBox from "@/components/common/card";
 import ImageCommon from "@/components/common/image";
 import PhoneScreen from "@/components/common/phone-screen";
@@ -11,20 +12,25 @@ interface NextKaraokeProps {}
 
 const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
   const videos = useVideoStore((state) => state.videos);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: "some" });
+  // const ref = useRef(null);
+  // const isInView = useInView(ref, { amount: "some" });
   return (
     <>
       <CardBox
         className="card-limit-height relative flex items-center justify-center"
         highlight={false}
       >
-        <motion.div
+        {/* <motion.div
           ref={ref}
           initial={{ x: -100, opacity: 0 }}
           animate={isInView ? { x: 0, opacity: 1 } : undefined}
           transition={{ ease: "easeInOut", duration: 2 }}
           className="w-[65vw] md:w-[40vw] xl:w-[550px] h-fit"
+        > */}
+        <AnimatedCard
+          start={{ x: -100 }}
+          className="w-[65vw] md:w-[40vw] xl:w-[550px] h-fit"
+          transition={{ ease: "easeInOut", duration: 2 }}
         >
           <PhoneScreen layout={"ipad"} mode="landscape">
             <VideoCommon
@@ -34,7 +40,8 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
               autoPlay
             ></VideoCommon>
           </PhoneScreen>
-        </motion.div>
+        </AnimatedCard>
+        {/* </motion.div> */}
         <div
           className={`absolute 
             w-[40vw]      md:w-[28vw]     xl:w-[350px] 
@@ -42,12 +49,13 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
             -right-[2vw]  md:right-[15vw] xl:right-48  
             z-20  h-fit`}
         >
-          <motion.div
+          {/* <motion.div
             ref={ref}
             initial={{ x: 100, opacity: 0 }}
             animate={isInView ? { x: 0, opacity: 1 } : undefined}
             transition={{ ease: "easeInOut", duration: 2 }}
-          >
+          > */}
+          <AnimatedCard start={{ x: 100 }}>
             <PhoneScreen layout={"iphone"}>
               <VideoCommon
                 loop
@@ -56,7 +64,8 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
                 autoPlay
               ></VideoCommon>
             </PhoneScreen>
-          </motion.div>
+          </AnimatedCard>
+          {/* </motion.div> */}
         </div>
       </CardBox>
     </>

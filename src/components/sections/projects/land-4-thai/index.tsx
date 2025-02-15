@@ -1,3 +1,4 @@
+import AnimatedCard from "@/components/common/anime/anime-card";
 import CardBox from "@/components/common/card";
 import CardContant from "@/components/common/card/card-contant";
 import ImageCommon from "@/components/common/image";
@@ -9,19 +10,24 @@ import React, { useRef } from "react";
 interface Land4ThaiScreenProps {}
 
 const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: "some" });
+  // const ref = useRef(null);
+  // const isInView = useInView(ref, { amount: "some" });
   return (
     <>
       <div className="grid md:grid-cols-2 gap-contant card-limit-height">
         <CardBox className="!p-0 h-full aspect-square md:aspect-auto flex items-center justify-center">
           <div className="flex w-full h-fit z-10 p-10">
-            <motion.div
+            {/* <motion.div
               ref={ref}
               initial={{ y: 100, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : undefined}
               transition={{ ease: "easeInOut", duration: 2 }}
               className="flex w-full h-fit pt-[5vw] xl:pt-[50px] -mx-[15vw] md:-m-[8vw] xl:-m-[100px]"
+            > */}
+            <AnimatedCard
+              className="flex w-full h-fit pt-[5vw] xl:pt-[50px] -mx-[15vw] md:-m-[8vw] xl:-m-[100px]"
+              start={{ y: 100 }}
+              // transition={{ ease: "easeInOut", duration: 2 }}
             >
               <PhoneScreen layout={"iphone"}>
                 <ImageCommon
@@ -29,13 +35,18 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                   containerClassName="w-full h-full"
                 ></ImageCommon>
               </PhoneScreen>
-            </motion.div>
-            <motion.div
+            </AnimatedCard>
+            {/* </motion.div> */}
+            {/* <motion.div
               ref={ref}
               initial={{ y: -100, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : undefined}
-              transition={{ ease: "easeInOut", duration: 2 }}
+              // transition={{ ease: "easeInOut", duration: 2 }}
               className="flex w-full h-fit pb-[5vw] xl:pb-[50px] -mx-[15vw] md:-m-[8vw] xl:-m-[100px]"
+            > */}
+            <AnimatedCard
+              className="flex w-full h-fit pb-[5vw] xl:pb-[50px] -mx-[15vw] md:-m-[8vw] xl:-m-[100px]"
+              start={{ y: -100 }}
             >
               <PhoneScreen layout={"android"}>
                 <ImageCommon
@@ -43,19 +54,22 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                   containerClassName="w-full h-full"
                 ></ImageCommon>
               </PhoneScreen>
-            </motion.div>
+            </AnimatedCard>
+            {/* </motion.div> */}
           </div>
         </CardBox>
         <div className="flex flex-col gap-contant">
-          <div
-            ref={ref}
-            className="relative grid grid-cols-3 gap-contant h-20 "
-          >
-            <motion.div
+          <div className="relative grid grid-cols-3 gap-contant h-20 ">
+            {/* <motion.div
               className="w-full h-full col-span-2"
               initial={{ x: 100, opacity: 0 }}
               animate={isInView ? { x: 0, opacity: 1 } : undefined}
               transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.1 }}
+            > */}
+            <AnimatedCard
+              delay={0.1}
+              className="w-full h-full col-span-2"
+              start={{ x: 100 }}
             >
               <CardBox
                 className="relative duration-300 !p-0 w-full h-full flex items-center justify-center"
@@ -67,12 +81,18 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                   objectFit="contain"
                 ></ImageCommon>
               </CardBox>
-            </motion.div>
-            <motion.div
+            </AnimatedCard>
+            {/* </motion.div> */}
+            {/* <motion.div
               className="w-full h-full col-span-1"
               initial={{ x: 100, opacity: 0 }}
               animate={isInView ? { x: 0, opacity: 1 } : undefined}
               transition={{ ease: [0.4, 0, 0.2, 1], duration: 2, delay: 0.2 }}
+            > */}
+            <AnimatedCard
+              delay={0.2}
+              className="w-full h-full col-span-1"
+              start={{ y: 100 }}
             >
               <CardBox
                 className="relative w-full h-full !p-4 flex items-center justify-center gap-2"
@@ -94,14 +114,16 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                   objectFit="contain"
                 ></ImageCommon>
               </CardBox>
-            </motion.div>
+            </AnimatedCard>
+            {/* </motion.div> */}
           </div>
-          <motion.div
+          {/* <motion.div
             className="w-full h-full col-span-2"
             initial={{ x: 100, opacity: 0 }}
             animate={isInView ? { x: 0, opacity: 1 } : undefined}
             transition={{ ease: [0.4, 0, 0.2, 1], duration: 2 }}
-          >
+          > */}
+          <AnimatedCard className="w-full h-full col-span-2" start={{ x: 100 }}>
             <CardBox className="h-full" highlight={false}>
               <CardContant
                 tags={["test", "2020"]}
@@ -149,7 +171,8 @@ const Land4ThaiScreen: React.FC<Land4ThaiScreenProps> = ({}) => {
                 }
               ></CardContant>
             </CardBox>
-          </motion.div>
+          </AnimatedCard>
+          {/* </motion.div> */}
         </div>
       </div>
     </>
