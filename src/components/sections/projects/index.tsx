@@ -7,6 +7,9 @@ import { images } from "@/config/value";
 import { videoPaths } from "@/stores/video-sotre";
 import ModalCommon from "@/components/common/modal";
 import Tag from "@/components/common/tags";
+import SegmentedControl from "@/components/common/segmented-control";
+import { FaAndroid, FaApple } from "react-icons/fa";
+import { AppleSereenType } from "@/types/general.type";
 
 interface ProjectSectionProps {}
 
@@ -16,6 +19,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
   const contantPading = "w-full p-3 md:p-0 lg:p-16";
 
   const [open, setOpen] = useState<boolean>(false);
+  const [open2, setOpen2] = useState<AppleSereenType>("android");
 
   const handleOpenModal = () => {
     setOpen(true);
@@ -23,18 +27,21 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
   const handleCloseModal = () => {
     setOpen(false);
   };
+
   return (
     <>
       <ModalCommon isOpen={open} onClose={handleCloseModal}>
         test
       </ModalCommon>
-      <div className="flex flex-col gap-contant">
+      <div className="flex flex-col gap-contant relative">
         <span className="text-clamp-lg font-bold">Project</span>
+
         <div className="flex flex-col gap-contant">
           <div className={grid}>
             <CardBox
+              highlight={false}
               moreDetail
-              className={card}
+              className={`${card} bg-[url(/images/project/gaysorn/gaysorn-bg.png)] bg-contain bg-no-repeat bg-left-top`}
               onClick={handleOpenModal}
               bottom={{
                 tag: [
@@ -48,7 +55,9 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
                 title: "Gaysorn Urban Resort",
               }}
             >
-              <div className={contantPading}>
+              <div
+                className={`${contantPading}  transition-all cursor-pointer duration-300`}
+              >
                 <PhoneScreen mode={"portrait"} layout={"iphone"}>
                   <div className="relative w-full h-full ">
                     <VideoCommon
@@ -62,8 +71,9 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
             </CardBox>
 
             <CardBox
+              highlight={false}
               moreDetail
-              className={card}
+              className={`${card} bg-[url(https://i.pinimg.com/736x/69/53/a8/6953a8a716d02bdbc1582b034d96e207.jpg)] bg-cover bg-no-repeat bg-left-top`}
               bottom={{
                 tag: [
                   {
@@ -92,8 +102,8 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
           </div>
           <div className={grid}>
             <CardBox
-              className={`${card}`}
-              highlight
+              highlight={false}
+              className={`${card} bg-[url(https://i.pinimg.com/736x/b2/ae/e0/b2aee0a9acb500c941d2dfe504732f00.jpg)] bg-cover bg-no-repeat bg-left-top`}
               moreDetail
               bottom={{
                 tag: [
@@ -141,8 +151,9 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
               </div>
             </CardBox>
             <CardBox
+              highlight={false}
               moreDetail
-              className={`${card}`}
+              className={`${card} bg-[url(/images/project/land-4-thai/l4t-bg.png)] bg-contain bg-no-repeat bg-left-top`}
               bottom={{
                 tag: [
                   {
@@ -155,8 +166,26 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
                 title: "LAND4THAI",
               }}
             >
-              <div className={contantPading}>
-                <PhoneScreen layout={"android"}>
+              {/* <div className="absolute top-4 w-full flex justify-center items-center">
+                <SegmentedControl
+                  defaultValue="android"
+                  onChange={(e) => setOpen2(e as any)}
+                  options={[
+                    {
+                      label: "Apple",
+                      value: "iphone",
+                      icon: <FaApple></FaApple>,
+                    },
+                    {
+                      label: "Android",
+                      value: "android",
+                      icon: <FaAndroid></FaAndroid>,
+                    },
+                  ]}
+                ></SegmentedControl>
+              </div> */}
+              <div className={`${contantPading}`}>
+                <PhoneScreen layout={open2}>
                   <ImageCommon
                     src={images.projects.land4Thai.images.screen}
                     containerClassName="w-full h-full"

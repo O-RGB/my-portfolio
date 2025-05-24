@@ -1,14 +1,17 @@
 import React from "react";
 import ImageCommon from "../../image";
 
-interface IPhoneFrameProps {}
+interface IPhoneFrameProps {
+  className?: string;
+}
 
-const IPhoneFrame: React.FC<IPhoneFrameProps> = ({}) => {
+const IPhoneFrame: React.FC<IPhoneFrameProps> = ({ className }) => {
   return (
     <ImageCommon
       src="/images/phone-layout/iphone-layout.png"
       objectFit="contain"
-      containerClassName="w-full h-full"
+      className={`${className}`}
+      containerClassName={`w-full h-full`}
     ></ImageCommon>
   );
 };

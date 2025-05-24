@@ -41,17 +41,33 @@ const PhoneScreen: React.FC<PhoneScreenProps> = ({
         >
           {children}
         </div>
-        {layout === "iphone" ? (
+
+        <div
+          className={`${
+            layout !== "iphone" ? "hidden" : "block"
+          } w-full h-full`}
+        >
           <IPhoneFrame />
-        ) : layout === "ipad" ? (
+        </div>
+        <div
+          className={`${layout !== "ipad" ? "hidden" : "block"} w-full h-full`}
+        >
           <IPadFrame />
-        ) : layout === "macbook" ? (
+        </div>
+        <div
+          className={`${
+            layout !== "macbook" ? "hidden" : "block"
+          } w-full h-full`}
+        >
           <MacBoockFrame />
-        ) : layout === "android" ? (
+        </div>
+        <div
+          className={`${
+            layout !== "android" ? "hidden" : "block"
+          } w-full h-full`}
+        >
           <AndroidFrame />
-        ) : (
-          <></>
-        )}
+        </div>
       </div>
     </div>
   );

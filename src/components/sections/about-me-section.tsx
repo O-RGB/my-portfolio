@@ -19,7 +19,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
           ></ImageBox>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 grid-rows-1 md:grid-rows-2 gap-contant w-full h-full">
-          <CardBox className="row-span-1 relative grid grid-cols-1 gap-2">
+          <CardBox className="row-span-1 relative grid grid-cols-1 gap-2 h-full">
             <CardContant
               title="About Me"
               description={`สวัสดีครับ ผม "ส้มโอ" มีประสบการณ์ในสายนี้มา 2 ปีแล้ว

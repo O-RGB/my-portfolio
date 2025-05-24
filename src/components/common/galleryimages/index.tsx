@@ -49,7 +49,7 @@ const GalleryImages: React.FC<GalleryImagesProps> = ({ images = [] }) => {
         ) : (
           <SwiperSlide key={index}>
             <ImageBox
-              className="w-full h-[300px]"
+              className="w-full h-[340px]"
               srcImage={img as string}
             ></ImageBox>
           </SwiperSlide>

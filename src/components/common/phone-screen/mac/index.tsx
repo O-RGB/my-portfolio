@@ -1,14 +1,17 @@
 import React from "react";
 import ImageCommon from "../../image";
 
-interface MacBoockFrameProps {}
+interface MacBoockFrameProps {
+  className?: string;
+}
 
-const MacBoockFrame: React.FC<MacBoockFrameProps> = ({}) => {
+const MacBoockFrame: React.FC<MacBoockFrameProps> = ({className}) => {
   return (
     <ImageCommon
       src="/images/phone-layout/macbook-layout.png"
       objectFit="contain"
-      containerClassName="w-full h-full"
+      className={`${className}`}
+      containerClassName={`w-full h-full`}
     ></ImageCommon>
   );
 };
