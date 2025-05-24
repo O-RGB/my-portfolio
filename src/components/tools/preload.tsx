@@ -1,4 +1,5 @@
 "use client";
+
 import useVideoStore from "@/stores/video-sotre";
 import { useEffect, ReactNode, useState } from "react";
 
@@ -7,38 +8,54 @@ interface PreloadAssetsProps {
 }
 
 export default function PreloadAssets({ children }: PreloadAssetsProps) {
-  const loadAllVideos = useVideoStore((state) => state.loadAllVideos);
+  const loadVideos = useVideoStore((state) => state.loadVideos);
   const progress = useVideoStore((state) => state.progress);
+  const isLoading = useVideoStore((state) => state.isLoading);
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadingOpacity, setLoadingOpacity] = useState(true);
-  const [shouldRenderContent, setShouldRenderContent] = useState(false);
-  const [contentOpacity, setContentOpacity] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+  const [loadingOpacity, setLoadingOpacity] = useState(1);
+  const [contentOpacity, setContentOpacity] = useState(0);
 
+  // Start loading on mount
   useEffect(() => {
-    loadAllVideos();
+    loadVideos();
+
+    // Safety timeout - show content after 8 seconds no matter what
+    const safetyTimeout = setTimeout(() => {
+      handleCompletion();
+    }, 8000);
+
+    return () => clearTimeout(safetyTimeout);
   }, []);
 
+  // Watch for loading completion
   useEffect(() => {
-    if (progress >= 100) {
-      setTimeout(() => {
-        setLoadingOpacity(false);
-        setTimeout(() => {
-          setIsLoading(false);
-          setShouldRenderContent(true);
-          setTimeout(() => {
-            setContentOpacity(true);
-          }, 500);
-        }, 500);
-      }, 1000);
+    if (!isLoading && progress >= 100) {
+      handleCompletion();
     }
-  }, [progress]);
+  }, [isLoading, progress]);
 
-  if (shouldRenderContent) {
+  // Handle transition to content
+  const handleCompletion = () => {
+    // Fade out loading screen
+    setLoadingOpacity(0);
+
+    // After loading screen fades out, show content
+    setTimeout(() => {
+      setShowContent(true);
+
+      // Fade in content
+      setTimeout(() => {
+        setContentOpacity(1);
+      }, 100);
+    }, 500);
+  };
+
+  if (showContent) {
     return (
       <div
-        className={`transition-opacity duration-1000 ease-in-out`}
-        style={{ opacity: contentOpacity ? 1 : 0 }}
+        className="transition-opacity duration-1000 ease-in-out"
+        style={{ opacity: contentOpacity }}
       >
         {children}
       </div>
@@ -47,9 +64,8 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden transition-opacity duration-500 ${
-        loadingOpacity ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden transition-opacity duration-500"
+      style={{ opacity: loadingOpacity }}
     >
       {/* Solid background */}
       <div className="absolute inset-0 bg-[#efe9e2] dark:bg-black" />
@@ -64,7 +80,7 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
           {/* Progress circle */}
           <svg className="absolute inset-0 w-full h-full rotate-[-90deg]">
             <circle
-              className="transition-all duration-1000 ease-in-out"
+              className="transition-all duration-300 ease-in-out"
               stroke="#8b847e"
               strokeWidth="4"
               fill="none"
@@ -73,7 +89,8 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
               cy="64"
               style={{
                 strokeDasharray: 351.858,
-                strokeDashoffset: 351.858 - (351.858 * progress) / 100,
+                strokeDashoffset:
+                  351.858 - (351.858 * Math.min(progress, 100)) / 100,
               }}
             />
           </svg>
@@ -81,7 +98,7 @@ export default function PreloadAssets({ children }: PreloadAssetsProps) {
           {/* Percentage text */}
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-2xl font-bold text-[#8b847e]">
-              {Math.round(progress)}%
+              {Math.min(Math.round(progress), 100)}%
             </span>
           </div>
         </div>

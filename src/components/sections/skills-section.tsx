@@ -3,13 +3,13 @@ import SkillsBox from "../layout/skills-box";
 import ImageCommon from "../common/image";
 import { motion, useInView } from "framer-motion";
 import { images } from "@/config/value";
-import useVideoStore from "@/stores/video-sotre";
+import useVideoStore, { videoPaths } from "@/stores/video-sotre";
 import AnimatedCard from "../common/anime/anime-card";
 
 interface SkillsSectionProps {}
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
-  const videos = useVideoStore((state) => state.videos);
+  // const videos = useVideoStore((state) => state.videoUrls);
   const duration = 3;
   const space = 200;
   // const ref = useRef(null);
@@ -27,7 +27,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       duration={duration}
     >
       <SkillsBox
-        title="เรียนรู้การใช้ AI Chart"
+        title="เรียนรู้การใช้ AI"
         contant={
           <div className="flex justify-end items-end h-full ">
             <div className="flex items-center justify-center gap-4 ">
@@ -66,7 +66,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       delay={0.3}
     >
       <SkillsBox
-        bg={videos["skills-frontend"]} //images.skills.frontend.videos.skillsFrontend
+        bg={videoPaths["skills-frontend"]} //images.skills.frontend.videos.skillsFrontend
         isVideo
         title="Frontend"
         contant={
@@ -130,7 +130,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
     >
       <SkillsBox
         title="Backend"
-        bg={videos["skills-backend-bg-2"]} //images.skills.backend.videos.skillsBackendBg
+        bg={videoPaths["skills-backend-bg-2"]} //images.skills.backend.videos.skillsBackendBg
         isVideo
         contant={
           <div className="flex justify-between h-full ">
@@ -168,7 +168,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       animate={{ opacity: 1, scale: 1 }}
     >
       <SkillsBox
-        title="Databse"
+        title="Database"
         contant={
           <div className="flex justify-between h-full">
             <div>

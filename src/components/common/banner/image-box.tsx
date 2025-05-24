@@ -29,15 +29,17 @@ const ImageBox: React.FC<ImageBoxProps> = ({
       <div
         className={`relative w-full ${className} overflow-hidden rounded-layout transition-all duration-1000`}
       >
-        <div className="absolute top-0 left-0 bottom-0 bg-slate-200 w-full overflow-hidden rounded-layout">
-          <ImageCommon
-            src={srcImage}
-            objectFit="cover"
-            className={`h-full ${
-              srcVideo ? (onEnd ? "opacity-100" : "opacity-0") : ""
-            }`}
-          ></ImageCommon>
-        </div>
+        {srcImage && (
+          <div className="absolute top-0 left-0 bottom-0 bg-slate-200 w-full overflow-hidden rounded-layout">
+            <ImageCommon
+              src={srcImage}
+              objectFit="cover"
+              className={`h-full ${
+                srcVideo ? (onEnd ? "opacity-100" : "opacity-0") : ""
+              }`}
+            ></ImageCommon>
+          </div>
+        )}
 
         {srcVideo && (
           <div className="absolute top-0 left-0 bottom-0 w-full h-full">

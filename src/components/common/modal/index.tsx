@@ -46,7 +46,9 @@ const ModalCommon: React.FC<ModalCommonProps> = ({
     <AnimatePresence>
       {isOpen && (
         <>
-          <div className="fixed inset-0 z-40 flex items-center justify-center px-4">
+          <div
+            className={`fixed inset-0 z-40 flex items-center justify-center px-4`}
+          >
             <motion.div
               className="relative z-50 w-full max-w-lg bg-white/70 dark:bg-black/50 backdrop-blur-xl rounded-layout shadow-lg h-[80vh] overflow-hidden"
               initial={{ y: "105vh" }}
@@ -69,7 +71,7 @@ const ModalCommon: React.FC<ModalCommonProps> = ({
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
+              animate={{ opacity: 0.7 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
               className="absolute flex items-center justify-center w-full h-full z-40 bg-black"

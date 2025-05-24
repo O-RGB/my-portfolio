@@ -3,13 +3,13 @@ import CardBox from "@/components/common/card";
 import CardContant from "@/components/common/card/card-contant";
 import PhoneScreen from "@/components/common/phone-screen";
 import VideoCommon from "@/components/common/video";
-import useVideoStore from "@/stores/video-sotre";
+import useVideoStore, { videoPaths } from "@/stores/video-sotre";
 import React from "react";
 
 interface NextKaraokeProps {}
 
 const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
-  const videos = useVideoStore((state) => state.videos);
+  // const videos = useVideoStore((state) => state.videoUrls);
   return (
     <div className="grid grid-cols-1 gap-contant">
       <CardBox
@@ -24,7 +24,7 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
           <PhoneScreen layout={"ipad"} mode="landscape">
             <VideoCommon
               loop
-              src={videos["karaoke-ipad-screen"]}
+              src={videoPaths["karaoke-ipad-screen"]}
               className="w-full h-full p-0.5"
               autoPlay
             ></VideoCommon>
@@ -42,7 +42,7 @@ const NextKaraoke: React.FC<NextKaraokeProps> = ({}) => {
             <PhoneScreen layout={"iphone"}>
               <VideoCommon
                 loop
-                src={videos["karaoke-iphone-remote"]}
+                src={videoPaths["karaoke-iphone-remote"]}
                 className=" w-full h-full p-[1vw] md:p-2 pt-[3.5vw] md:pt-8 scale-[1.05] bg-[#64758c]"
                 autoPlay
               ></VideoCommon>

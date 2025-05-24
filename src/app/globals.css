@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-clamp-test {
+  height: clamp(2.5rem, 5vw, 20rem);
+}
 .text-clamp-2xl {
   font-size: clamp(1rem, 10vw, 20rem);
 }
@@ -20,6 +23,10 @@
 
 .text-clamp-base {
   font-size: clamp(1.5rem, 2.5vw, 20rem);
+}
+
+.text-clamp-sm {
+  font-size: clamp(1rem, 2vw, 18rem);
 }
 
 @media (min-width: 1280px) {
