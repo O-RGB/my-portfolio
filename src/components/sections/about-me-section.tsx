@@ -15,11 +15,11 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
         <div className="col-span-1 md:col-span-2 hidden md:block ">
           <ImageBox
             className="h-[300px] md:h-full"
-            srcImage={images.aboutMe.images.aboutMe3}
+            srcImage={images.aboutMe.images.aboutMe}
           ></ImageBox>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 grid-rows-1 md:grid-rows-2 gap-contant w-full h-full">
-          <CardBox className="row-span-1 relative grid grid-cols-1 gap-2 h-full">
+          <CardBox className="row-span-1 relative grid grid-cols-1 gap-2 h-full bg-[url('https://bing.com/th/id/BCO.485dcba8-1a1f-438c-8949-67baea762f50.png')] dark:bg-[url('https://bing.com/th/id/BCO.3c759c0a-828d-4509-bac2-664190293974.png')]">
             <CardContant
               title="About Me"
               description={`สวัสดีครับ ผม "ส้มโอ" มีประสบการณ์ในสายนี้มา 2 ปีแล้ว
@@ -35,14 +35,15 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({}) => {
               images={[
                 images.aboutMe.images.aboutMe1,
                 images.aboutMe.images.aboutMe2,
+                images.aboutMe.images.aboutMe3,
               ]}
             ></GalleryImages>
           </div>
           <div className="col-span-1 row-span-1 h-full w-full block md:hidden">
             <GalleryImages
               images={[
-                images.aboutMe.images.aboutMe3,
                 images.aboutMe.images.aboutMe1,
+                images.aboutMe.images.aboutMe3,
                 images.aboutMe.images.aboutMe2,
               ]}
             ></GalleryImages>

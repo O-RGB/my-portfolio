@@ -8,6 +8,7 @@ import WorkExperienceSection from "../sections/work-experience-section";
 import useSectionStore from "@/stores/section-store";
 import SkillsSection from "../sections/skills-section";
 import ProjectSection from "../sections/projects";
+import { LiquidGlass } from "../common/glass";
 
 interface HomeProps {}
 
@@ -98,6 +99,8 @@ const Home: React.FC<HomeProps> = ({}) => {
       </ContainerLayout>
       <ContainerLayout className="w-full overflow-hidden">
         <GapContant>
+          {/* <SlowMotionAnimation></SlowMotionAnimation> */}
+          {/* <SlowMotionVideoAnimation videoSrc="/frames/84172d868b0c83a12c2fa4111fef774f.mp4"></SlowMotionVideoAnimation> */}
           <div id="skills" className="scroll-section">
             <SkillsSection></SkillsSection>
           </div>

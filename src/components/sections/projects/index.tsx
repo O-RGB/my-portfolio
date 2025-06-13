@@ -41,7 +41,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
             <CardBox
               highlight={false}
               moreDetail
-              className={`${card} bg-[url(/images/project/gaysorn/gaysorn-bg.png)] bg-contain bg-no-repeat bg-left-top`}
+              className={`${card} bg-[url(/images/project/gaysorn/gur-light.png)] dark:bg-[url(/images/project/gaysorn/gur-dark-2.png)] duration-300 bg-cover bg-no-repeat bg-center`}
               onClick={handleOpenModal}
               bottom={{
                 tag: [
@@ -73,7 +73,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
             <CardBox
               highlight={false}
               moreDetail
-              className={`${card} bg-[url(https://i.pinimg.com/736x/69/53/a8/6953a8a716d02bdbc1582b034d96e207.jpg)] bg-cover bg-no-repeat bg-left-top`}
+              className={`${card} `}
               bottom={{
                 tag: [
                   {
@@ -103,7 +103,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
           <div className={grid}>
             <CardBox
               highlight={false}
-              className={`${card} bg-[url(https://i.pinimg.com/736x/b2/ae/e0/b2aee0a9acb500c941d2dfe504732f00.jpg)] bg-cover bg-no-repeat bg-left-top`}
+              className={`${card}`}
               moreDetail
               bottom={{
                 tag: [
@@ -153,7 +153,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({}) => {
             <CardBox
               highlight={false}
               moreDetail
-              className={`${card} bg-[url(/images/project/land-4-thai/l4t-bg.png)] bg-contain bg-no-repeat bg-left-top`}
+              className={`${card} bg-[url(/images/project/land-4-thai/l4t-light.png)] dark:bg-[url(/images/project/land-4-thai/l4t-dark.png)] duration-300 bg-cover bg-no-repeat bg-center`}
               bottom={{
                 tag: [
                   {

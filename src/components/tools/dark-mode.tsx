@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { useTheme } from "next-themes";
-import { FaMoon } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 import ButtonCommon from "../common/button";
 
 interface DarkModeToggleProps {
@@ -32,17 +32,21 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ disabled }) => {
     <ButtonCommon
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       icon={
-        <FaMoon
-          className={`text-sm ${
-            resolvedTheme === "dark" ? "text-black" : "text-white"
-          } transition-colors duration-300`}
-        />
+        <>
+          {resolvedTheme !== "dark" ? (
+            <FaMoon
+              className={`text-sm text-white transition-colors duration-300`}
+            />
+          ) : (
+            <FaSun
+              className={`text-sm text-white transition-colors duration-300`}
+            ></FaSun>
+          )}
+        </>
       }
       isCircle
       variant="custom"
-      customColor={`${
-        resolvedTheme === "dark" ? "bg-[#fff]" : "bg-[#000]"
-      } transition-colors duration-300`}
+      customColor={`bg-white/40 hover:bg-white/40! transition-colors duration-300`}
     />
   );
 };

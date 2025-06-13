@@ -48,7 +48,6 @@ const CardContant: React.FC<CardContantProps> = ({
         {moreDetail && (
           <div className="h-fit">
             <ButtonCommon
-              variant="transparent"
               onClick={handleOpenModal}
               label="อ่านเพิ่มเติม"
             ></ButtonCommon>

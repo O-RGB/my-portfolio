@@ -23,11 +23,7 @@ const CardBox: React.FC<CardBoxProps> = ({
 }) => {
   return (
     <div>
-      <div
-        className={`relative p-6 ${
-          highlight ? "bg-[#efe9e2]" : "bg-gray-100"
-        } dark:bg-white/10 rounded-layout overflow-hidden ${className}`}
-      >
+      <div className={`relative p-6 rounded-layout ${className}`}>
         {children}
 
         {moreDetail && (

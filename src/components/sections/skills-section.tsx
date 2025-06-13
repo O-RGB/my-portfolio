@@ -66,8 +66,9 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
       delay={0.3}
     >
       <SkillsBox
-        bg={videoPaths["skills-frontend"]} //images.skills.frontend.videos.skillsFrontend
-        isVideo
+        bg={images.skills.frontend.videos.skillsFrontend} //images.skills.frontend.videos.skillsFrontend
+        // bg={videoPaths["skills-frontend"]} //images.skills.frontend.videos.skillsFrontend
+        // isVideo
         title="Frontend"
         contant={
           <div className="flex flex-col justify-between h-full gap-4">
@@ -130,8 +131,9 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({}) => {
     >
       <SkillsBox
         title="Backend"
-        bg={videoPaths["skills-backend-bg-2"]} //images.skills.backend.videos.skillsBackendBg
-        isVideo
+        // bg={videoPaths["skills-backend-bg-2"]} //images.skills.backend.videos.skillsBackendBg
+        bg={images.skills.backend.videos.skillsBackendBg}
+        // isVideo
         contant={
           <div className="flex justify-between h-full ">
             <div>
